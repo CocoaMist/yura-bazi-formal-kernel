@@ -12,9 +12,10 @@ fortune-prediction engine.
 
 ## 快速开始
 
-需要 **Node.js 24 LTS**。Node 部分没有 npm 依赖，无需安装依赖。
+需要 **Node.js 24.13.1 LTS** 复现冻结示例与完整检查。Node 部分没有 npm 依赖，无需安装依赖。
 package.json 保留内核的 `>=20` 声明以匹配冻结的 release manifest；
-完整开发流程使用 Node 24，部分工具依赖 `node:sqlite`。
+完整开发流程使用 Node 24，部分工具依赖 `node:sqlite`。冻结示例的来源身份包含
+ICU/CLDR/TZDB 版本，因此其他 Node 构建可能产生不同的 bundle hash；CI 固定为 24.13.1。
 
 ```sh
 git clone https://github.com/CocoaMist/yura-bazi-formal-kernel.git
