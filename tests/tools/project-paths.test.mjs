@@ -66,6 +66,13 @@ test('the output dependency exemption does not accept a regular file', async (t)
   await assert.rejects(validateProjectPaths(root), /output dependency boundary must be a directory:/);
 });
 
+test('a linked project root is rejected before its contents are inspected', async (t) => {
+const { root, external } = await fixture(t);
+const linkedRoot = join(root, 'linked-project');
+await directoryLink(linkedRoot, external);
+await assert.rejects(validateProjectPaths(linkedRoot), /symlink forbidden: project root/);
+});
+
 for (const [source, expected] of [
   ["import '../outputs/job/node_modules/example/index.mjs';", /source import escapes src/],
   ["import '../src-extra/example.mjs';", /source import escapes src/],

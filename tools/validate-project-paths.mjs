@@ -16,7 +16,13 @@ function isInside(root, path) {
 }
 
 export async function validateProjectPaths(projectRoot) {
-  const root = resolve(projectRoot);
+const requestedRoot = resolve(projectRoot);
+if ((await lstat(requestedRoot)).isSymbolicLink()) {
+throw new Error('symlink forbidden: project root');
+}
+// Resolve the root and its descendants in the same namespace. Windows temp
+// paths may use an 8.3 alias while realpath returns the expanded spelling.
+const root = await realpath(requestedRoot);
   const skippedOutputDependencies = [];
 
   async function walk(directory) {
