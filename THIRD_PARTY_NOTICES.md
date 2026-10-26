@@ -1,8 +1,10 @@
 # Third-party references and optional dependencies
 
 The original source code in this repository is licensed under MIT.
-No external book corpus, purchased text, personal case database, generated
-third-party interpretation dataset, package binary or model weight is included.
+Purchased text, personal case databases, package binaries and model weights are
+excluded. A separately reviewed classical-text and research subset is available
+in Releases; its source inventory and separate data licenses are described in
+`data/README.md` and `data/DATA-LICENSE.md`.
 
 ## Calendar and time references
 
@@ -17,9 +19,10 @@ distinction between technical references and traditional terminology sources.
 An algorithm reference does not imply endorsement or an accuracy certification.
 
 Classical source identifiers and short historical terminology references are
-retained as provenance pointers. Full transcriptions and local purchased
-editions are not redistributed; a pointer is not permission to redistribute
-the linked or locally held material.
+retained as provenance pointers. The optional public corpus contains selected
+Wikisource transcriptions under the item-level CC BY-SA 3.0/4.0 notices in its
+source catalog. Local purchased editions and other unlicensed transcriptions
+are excluded; a pointer alone is not redistribution permission.
 
 ## Optional Python/GPU OCR
 

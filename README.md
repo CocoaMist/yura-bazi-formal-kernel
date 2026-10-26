@@ -10,6 +10,10 @@ fortune-prediction engine.
 包含内核、独立历法能力、测试、命令行与开发工具；公开范围和验证边界见
 [PUBLIC-DISTRIBUTION.md](PUBLIC-DISTRIBUTION.md)。
 
+可公开的古籍全文索引和来源绑定研究记录已单独整理为
+[公开研究数据库](data/README.md)，通过 GitHub Releases 下载。
+购买全文、个人命盘和授权不明的资料未包含；数据许可与代码 MIT 许可分别说明。
+
 ## 快速开始
 
 需要 **Node.js 24.13.1 LTS** 复现冻结示例与完整检查。Node 部分没有 npm 依赖，无需安装依赖。
@@ -79,6 +83,7 @@ Windows PowerShell 5.1 向 Node 传入中文时，请先设置
 | 可选 Agent Room | [agent-tools/agent-room/README.md](agent-tools/agent-room/README.md) |
 | 可选 Python/GPU OCR | [agent-tools/ocr/README.md](agent-tools/ocr/README.md) |
 | 公开源码边界与检查范围 | [PUBLIC-DISTRIBUTION.md](PUBLIC-DISTRIBUTION.md) |
+| 公开数据库、下载与校验 | [data/README.md](data/README.md) |
 
 `src/index.mjs` 是内核的唯一公开导出入口。JSON Schemas 位于 `schemas/`。
 
@@ -99,4 +104,5 @@ OCR 需要单独配置 Python 环境；`npm run ocr:layout:test` 是可选检查
 自动检查使用本地测试替身。
 
 `package.json` 中的 `private: true` 用于防止误发布到 npm，不影响 GitHub 代码开源。
-外部书籍、购买资料、个人命盘和研究数据未随代码发布，也不由本项目 MIT 许可证授权。
+古籍转录和研究数据的许可见 [data/DATA-LICENSE.md](data/DATA-LICENSE.md)。
+购买资料、个人命盘及未确认可再分发的资料没有公开。

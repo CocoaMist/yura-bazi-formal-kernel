@@ -19,7 +19,15 @@ packaging is not a new calibration admission or independent domain audit.
 Local machine paths are removed from public documentation, and credential-shaped
 test strings are replaced by short, nonfunctional test placeholders.
 
-## Local research material is outside this distribution
+## Optional public research data and excluded local material
+
+A separately rebuilt, source-reviewed subset is available as an optional
+[public research data release](data/README.md). It contains redistributable
+classical Wikisource extracts, a fresh SQLite/FTS index, and source-bound
+historical research projections. Per-file provenance and licenses are retained.
+Large payloads are Release assets; Git contains the manifest and source catalog.
+The mixed local database is never copied, so excluded rows and deleted database
+pages cannot leak through that original file. The public index is built fresh.
 
 The local research workspace also contains evidence stores, research-space,
 deceased-person studies, experiments and a life-course atlas. Those packages and
@@ -27,16 +35,18 @@ their datasets are not shipped here. Architecture documents may describe their
 boundaries as future/external components; they do not imply those packages are
 available in this public checkout.
 
-Books, purchased transcriptions, scanned material, named-person datasets, personal
-birth inputs, historical model responses, provider configuration, cached indexes,
-archives, logs and generated research exports are excluded.
+Purchased transcriptions, scanned material, modern texts without established
+redistribution rights, private/named-person case datasets, personal birth inputs,
+historical model responses, provider configuration, original mixed indexes,
+archives and execution logs are excluded. Historical names appearing inside
+classical source texts are retained as part of those works.
 
 Do not copy a private data directory into this repository to satisfy a test.
 The root check has no dependency on those local research packages.
 
 ## Reproducible checks
 
-Use Node.js 24 LTS and run `npm run check` from this directory. No npm install is
+Use Node.js 24.13.1 LTS and run `npm run check` from this directory. No npm install is
 required. The check runs structure, source-boundary and contract validation,
 Node-only development-tool tests, the kernel coverage gate and the capability
 package's checks.
@@ -55,8 +65,9 @@ contains no links and no generated output directories.
 ## Licensing and validity
 
 Original code is licensed under MIT. See `THIRD_PARTY_NOTICES.md` for algorithm
-references and optional dependency boundaries. Private and third-party datasets
-are not covered or redistributed.
+references and optional dependency boundaries. The optional dataset has separate
+CC BY-SA notices in `data/DATA-LICENSE.md`; the code's MIT license does not
+relicense third-party transcriptions. Private and restricted datasets remain local.
 
 Engineering tests establish invariants of the implementation. They do not prove
 calendar accuracy, classical consensus, predictive usefulness, event probability
@@ -67,4 +78,5 @@ or causal effectiveness. Numeric forecasts are not provided.
 Read `AGENTS.md`, `CORE.md` and `TIME_CORE.md` before changing semantics. Keep
 candidate markers, explicit uncertainty, source/profile versions and import
 boundaries intact. Include relevant checks with a change; do not introduce
-private examples, credentials, model responses or source books.
+private examples, credentials, model responses or unlicensed source books.
+Corpus access is read-only research and never a kernel fact, rule or admission.

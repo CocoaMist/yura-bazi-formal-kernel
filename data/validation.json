@@ -1,0 +1,11 @@
+{
+  "valid": true,
+  "sourceFiles": 1580,
+  "excerpts": 22516,
+  "checkedSemantics": 22516,
+  "checkedLabels": 22516,
+  "searchMatches": 27,
+  "files": 1597,
+  "bytes": 199566734,
+  "sensitiveFindings": []
+}

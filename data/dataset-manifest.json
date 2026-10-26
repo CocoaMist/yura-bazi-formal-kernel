@@ -1,0 +1,64 @@
+{
+  "schema": "yura.public_data_release.v1",
+  "version": "yura.public_research_data.20261026.v1",
+  "releaseUrl": "https://github.com/CocoaMist/yura-bazi-formal-kernel/releases/tag/data-2026-10-26",
+  "asset": {
+    "name": "yura-public-research-data-2026-10-26.zip",
+    "bytes": 65991229,
+    "sha256": "383467e8ae91938dff06ea9acb43d16fab1980a71cdbb943d92d21efeef2687a",
+    "url": "https://github.com/CocoaMist/yura-bazi-formal-kernel/releases/download/data-2026-10-26/yura-public-research-data-2026-10-26.zip"
+  },
+  "database": {
+    "name": "public-research.sqlite",
+    "bytes": 132415488,
+    "sha256": "aabe8fe2c202e21d54764f5d221f2525cd06809daacf544eb6b94af6192b0b58"
+  },
+  "sourceFiles": 1580,
+  "bookSourceEntries": 80,
+  "excerpts": 22516,
+  "assertions": 25446,
+  "reviewLabels": 22516,
+  "sourceOffsetRecords": 22516,
+  "licenses": [
+    "CC-BY-SA-3.0",
+    "CC-BY-SA-4.0",
+    "MIT (first-party structural notes only)"
+  ],
+  "researchOnly": true,
+  "formalAdmission": false,
+  "purchasedTextIncluded": false,
+  "personalDataIncluded": false,
+  "exclusions": {
+    "corpus": {
+      "modern_or_research_category": 1255,
+      "non_text_duplicate_or_script": 68,
+      "ctext_rights_unconfirmed": 47,
+      "source_page_unresolved": 1
+    },
+    "records": {
+      "legacyEvidenceScanned": 50911,
+      "sourceNotInPublicAllowlist": 27860,
+      "quoteNotInCurrentPublicText": 535,
+      "sensitiveRecordExcluded": 0
+    },
+    "wholeGroups": [
+      "purchased_text",
+      "modern_text_without_redistribution_license",
+      "ctext_without_confirmed_license",
+      "private_charts",
+      "bought_case_clips",
+      "model_response_and_execution_logs"
+    ]
+  },
+  "validation": {
+    "valid": true,
+    "sourceFiles": 1580,
+    "excerpts": 22516,
+    "checkedSemantics": 22516,
+    "checkedLabels": 22516,
+    "searchMatches": 27,
+    "files": 1597,
+    "bytes": 199566734,
+    "sensitiveFindings": []
+  }
+}
