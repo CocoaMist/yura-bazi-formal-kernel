@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "formal.release_profiles.schema.v1",
+  "$defs": {
+    "CanonicalEncodingProfileV1": {
+      "type": "object",
+      "required": ["version", "profileId", "objectKeys", "arrays", "sets", "nullSemantics", "unicodeNormalization", "stringEncoding", "numbers", "floatsAllowed", "profileHash"]
+    },
+    "HashingProfileV1": {
+      "type": "object",
+      "required": ["version", "profileId", "algorithm", "domainPrefix", "canonicalEncodingProfileHash", "profileHash"]
+    },
+    "ResolvedReleaseContextV1": {
+      "type": "object",
+      "required": ["version", "releaseManifestHash", "engine", "schemas", "deterministicTableContext", "relationProfileRegistry", "structuralCandidateEnumerator", "canonicalEncodingProfile", "hashingProfile", "componentHashes"]
+    },
+    "SelectedRelationProfileV1": {
+      "type": "object",
+      "required": ["version", "profileId", "profileSchemaVersion", "profileContentHash", "registryHash", "releaseManifestHash", "selectedRelationProfileHash"]
+    }
+  }
+}

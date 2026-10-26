@@ -1,0 +1,43 @@
+{
+  "name": "bazi-centric-formal-state-kernel",
+  "version": "0.7.2",
+  "private": true,
+  "type": "module",
+  "description": "Deterministic formal state kernel for Bazi-first reasoning.",
+  "exports": {
+    ".": "./src/index.mjs"
+  },
+  "scripts": {
+    "agent:tools": "node agent-tools/agent-kit.mjs",
+    "agent:room": "node agent-tools/agent-room/run.mjs",
+    "agent:room:ui": "node agent-tools/agent-room/ui-server.mjs",
+    "agent-tools:test": "node --test --test-concurrency=2 agent-tools/agent-kit.test.mjs agent-tools/agent-room/agent-room.test.mjs",
+    "structure:validate": "node tools/validate-structure.mjs",
+    "boundaries:validate": "node tools/validate-boundaries.mjs",
+    "grammar:audit": "node tools/audit-grammar-space.mjs",
+    "relations:audit": "node tools/audit-relation-space.mjs",
+    "contracts:audit": "node tools/audit-natal-contracts.mjs",
+    "natal:compile": "node tools/compile-natal.mjs",
+    "birth:compile": "node tools/compile-birth.mjs",
+    "birth:compile:legacy": "node tools/compile-birth.mjs --legacy-bundle-v1",
+    "century:compile": "node tools/compile-century.mjs",
+    "sixlayer:compile": "node tools/compile-six-layer-instant.mjs",
+    "test": "node --test --test-concurrency=2 \"tests/**/*.test.mjs\"",
+    "coverage": "node --experimental-test-coverage --test --test-concurrency=2 --test-coverage-include=\"src/**/*.mjs\" --test-coverage-lines=100 --test-coverage-branches=100 --test-coverage-functions=100 \"tests/**/*.test.mjs\"",
+    "capabilities:check": "npm --prefix capabilities run check",
+    "check": "npm run structure:validate && npm run boundaries:validate && npm run contracts:audit && npm run agent-tools:test && npm run coverage && npm run capabilities:check",
+    "ocr:layout:test": "node --test agent-tools/ocr-layout.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CocoaMist/yura-bazi-formal-kernel.git"
+  },
+  "homepage": "https://github.com/CocoaMist/yura-bazi-formal-kernel#readme",
+  "bugs": {
+    "url": "https://github.com/CocoaMist/yura-bazi-formal-kernel/issues"
+  }
+}

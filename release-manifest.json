@@ -1,0 +1,297 @@
+{
+  "version": "formal.release_manifest.v2",
+  "manifestSchemaVersion": "formal.release_manifest.schema.v2",
+  "engine": {
+    "name": "bazi-centric-formal-state-kernel",
+    "version": "0.7.2",
+    "node": ">=20",
+    "publicEntry": "./src/index.mjs",
+    "runtimeDependencies": []
+  },
+  "schemas": [
+    "yuracore.birth_compilation_input.v1",
+    "yuracore.birth_compilation_bundle.v1",
+    "yuracore.birth_compilation_error.v1",
+    "bazi.natal_fixed_bundle.v1",
+    "bazi.natal_fixed_state.v1",
+    "bazi.profile_scoped_raw_relation_matches.v1",
+    "bazi.temporal_match_index.v1",
+    "bazi.raw_structural_match_set.v1",
+    "bazi.temporal_layer_candidate.v1",
+    "bazi.temporal_candidate_envelope.v1",
+    "bazi.temporal_layer_candidate_set.v1",
+    "bazi.temporal_kernel_request.v1",
+    "bazi.inter_temporal_relation_set.v1",
+    "bazi.inter_temporal_structural_match.v1",
+    "bazi.inter_temporal_pillar_pair.v1",
+    "bazi.inter_temporal_complete_group.v1",
+    "bazi.temporal_layer_material_projection.v1",
+    "bazi.temporal_material_projection_set.v1",
+    "bazi.mixed_temporal_natal_complete_group.v1",
+    "bazi.mixed_temporal_natal_complete_group_set.v1",
+    "bazi.temporal_fixed_state_result.v1",
+    "bazi.temporal_candidate_compilation_result.v1",
+    "bazi.temporal_kernel_batch.v1",
+    "bazi.century_temporal_plan.v1",
+    "bazi.century_temporal_generation.v1",
+    "bazi.century_temporal_generation_result.v1",
+    "yuracore.century_temporal_bundle.v1",
+    "yuracore.century_age_index.v1",
+    "yuracore.century_temporal_error.v1",
+    "bazi.natal_fixed_path_binding.v1",
+    "bazi.source_projection_derivation.v1",
+    "bazi.calendar_decision_trace.v2",
+    "bazi.chart_snapshot.v1",
+    "bazi.chart_snapshot.v2",
+    "bazi.calendar_resolution_envelope.v1",
+    "bazi.natal_calendar_decision_trace.v1",
+    "bazi.candidate_snapshot.v1",
+    "bazi.candidate_snapshot_set.v2",
+    "bazi.natal_compilation_request.v1",
+    "bazi.candidate_compilation_result.v2",
+    "bazi.compiled_natal_artifact.v2",
+    "bazi.natal_compilation_batch.v2",
+    "bazi.deterministic_table_manifest.v1",
+    "bazi.resolved_release_context.v1",
+    "bazi.selected_relation_profile.v1",
+    "bazi.canonical_fact_graph.v4",
+    "bazi.profile_scoped_structural_candidate_set.v2",
+    "formal.canonical_encoding_profile.v1",
+    "formal.hashing_profile.v1",
+    "formal.branch_key.v1",
+    "formal.metric_instance_key.v1",
+    "formal.state_contract.v2",
+    "formal.state_delta.v3",
+    "formal.state_set.v1",
+    "formal.canonical_effect_op_set.v1",
+    "formal.evaluation_context.v4",
+    "formal.overlay_fact_graph.v2",
+    "formal.typed_fact.v2",
+    "formal.typed_fact_derivation.v2",
+    "formal.typed_fact_closure.v2",
+    "formal.typed_fact_closure_profile.v1",
+    "formal.release_candidate_manifest.v1",
+    "formal.release_admission_record.v1",
+    "formal.causal_contribution.v1",
+    "formal.calibration_witness.v2",
+    "formal.intervention_branch.v1"
+  ],
+  "deterministicTableManifest": {
+    "version": "bazi.deterministic_table_manifest.v1",
+    "schemaVersion": "bazi.deterministic_table_manifest.schema.v1",
+    "tables": [
+      {
+        "tableId": "bazi.structural_codebook.v1",
+        "contentHash": "sha256:bc3d0f52a34533d2f3fa0bde022d706611da03d015638fd1bfc370b192297b6f"
+      },
+      {
+        "tableId": "bazi.structural_foundation_profile.v1",
+        "contentHash": "sha256:cc853e801fa744ad81f59d93100548b86aea626765dc45ae4cbae428622efa29"
+      },
+      {
+        "tableId": "bazi.hidden_stems.modern_common_order.v1",
+        "contentHash": "sha256:3069b91455205641be6724139da226234dd795b36e6a7736008991cbc862b833"
+      },
+      {
+        "tableId": "bazi.growth_stage.ten_stem_yang_forward_yin_reverse_fire_earth.v1",
+        "contentHash": "sha256:650714a14e0f5a8275a8c1c282bd057d8d163e26b3276a15d4fbdf6d8365e4c1"
+      },
+      {
+        "tableId": "bazi.sexagenary_xun_void.cycle_anchor.v1",
+        "contentHash": "sha256:98edfced97221194962d77b377880361a44b047dc1921e23abd00b177775ed85"
+      },
+      {
+        "tableId": "bazi.relation_codebook.v3",
+        "contentHash": "sha256:b809f7c8f1269a993c86e8b44f55e2c492a9b8b70be8c7795de16a5229428da6"
+      }
+    ],
+    "deterministicTableManifestHash": "sha256:228effb7bac3bf5f1717bc56869653c0e99b8c994a55258f3b8e8e5c10de8cdf"
+  },
+  "relationProfiles": {
+    "schemaVersion": "bazi.relation_profile_registry.schema.v1",
+    "entries": [
+      {
+        "profileId": "bazi.relation_foundation.modern_common_raw_structure.v4",
+        "profileSchemaVersion": "bazi.relation_profile.schema.v1",
+        "contentHash": "sha256:639bf312a8d4119ee7736e08ed7f5abac6fa0db54a480b4e532b33a0c77bce1d"
+      }
+    ]
+  },
+  "canonicalEncodingProfile": {
+    "version": "formal.canonical_encoding_profile.v1",
+    "profileId": "formal.canonical_json.nfc_code_unit.v2",
+    "objectKeys": "sorted_by_utf16_code_unit",
+    "arrays": "ordered",
+    "sets": "schema_declared_then_sorted_by_canonical_identity",
+    "nullSemantics": "distinct_from_missing",
+    "missingFields": "forbidden_by_exact_record_contracts",
+    "unicodeNormalization": "NFC",
+    "stringEncoding": "UTF-8",
+    "enumCase": "exact_case_sensitive",
+    "numbers": "finite_json_number_negative_zero_canonicalized_to_zero",
+    "floatsAllowed": true,
+    "dateTime": "schema_declared_rfc3339_or_opaque_reference",
+    "selfHashFields": "excluded_by_each_named_hash_preimage",
+    "nonDeterministicDiagnostics": "excluded_from_semantic_identity",
+    "provenanceIdentity": "only_explicit_identityProvenanceRefs",
+    "profileHash": "sha256:f7fa842b09a77134ac5e48d31a4a7a87eca6133b3c57756d8f2aca10009992f9"
+  },
+  "hashingProfile": {
+    "version": "formal.hashing_profile.v1",
+    "profileId": "formal.sha256.domain_separated.v2",
+    "algorithm": "sha256",
+    "domainPrefix": "yura.formal.hash.v1\\0",
+    "canonicalEncodingProfileHash": "sha256:f7fa842b09a77134ac5e48d31a4a7a87eca6133b3c57756d8f2aca10009992f9",
+    "profileHash": "sha256:33c9e075964bb3f7e3e56a8d4005fa021ec62a3ce4a26d427f9c70f92f8292ca"
+  },
+  "structuralCandidateEnumerator": {
+    "enumeratorId": "bazi.structural_candidate_enumerator",
+    "enumeratorVersion": "bazi.structural_candidate_enumerator.v2",
+    "semantics": "occurrence_cartesian_profile_scoped_candidates_only"
+  },
+  "ruleCorpus": {
+    "status": "contract_only",
+    "entries": []
+  },
+  "sourceEditions": {
+    "status": "contract_only",
+    "entries": []
+  },
+  "sourceInterpretations": {
+    "status": "contract_only",
+    "entries": []
+  },
+  "ruleProfiles": {
+    "status": "contract_only",
+    "entries": []
+  },
+  "resolver": {
+    "resolverId": "canonical_resolver",
+    "resolverVersion": "canonical_resolver_v3",
+    "authority": "candidate",
+    "admissionStatus": "candidate"
+  },
+  "releaseCandidate": {
+    "version": "formal.release_candidate_manifest.v1",
+    "candidateManifestHash": "sha256:ffa5fec2b369e4edf1c0baea3a8163748ef505941896ab4be9bb7a0133851124"
+  },
+  "auditReports": [
+    {
+      "report": "grammar_space_audit",
+      "auditedStates": 518400,
+      "expectedStates": 518400,
+      "candidateManifestHash": "sha256:ffa5fec2b369e4edf1c0baea3a8163748ef505941896ab4be9bb7a0133851124",
+      "auditDigest": "sha256:7c99eb03b370505b5a0cc888dbc0eb125d8501614ea59591bb82d37b28fe2e0e"
+    },
+    {
+      "report": "relation_space_audit",
+      "auditedStates": 518400,
+      "expectedStates": 518400,
+      "candidateManifestHash": "sha256:ffa5fec2b369e4edf1c0baea3a8163748ef505941896ab4be9bb7a0133851124",
+      "auditDigest": "sha256:4fad2d459154f2b17b8648fcfdfa2c6b5a2d7afd8c0fe9f0003347dad0bdb18a",
+      "displayDigest": "279fcf1f"
+    },
+    {
+      "report": "natal_structural_contract_audit",
+      "candidateManifestHash": "sha256:ffa5fec2b369e4edf1c0baea3a8163748ef505941896ab4be9bb7a0133851124",
+      "findings": {
+        "schemaFileCount": 7,
+        "schemaRefsResolvable": true,
+        "manifestAuthorityClosed": true,
+        "resultStatusesHandled": [
+          "compiled",
+          "validation_failed",
+          "compilation_failed",
+          "internal_error"
+        ],
+        "totalMapInvariantPresent": true,
+        "relationProfileRuleCount": 51,
+        "relationDirectionalityAndArityDeclared": true,
+        "identityReferencesClosed": true,
+        "architectureImplementationMappingPresent": true,
+        "birthJsonBoundaryClosed": true,
+        "fixedBundleDefaultAndLegacyExplicit": true,
+        "fixedStateDeduplicationAndPathLineage": true,
+        "temporalIndexCoverageDeclared": true,
+        "temporalCoreTotalMapAndReleaseBinding": true,
+        "temporalSixLayerPairCardinality": true,
+        "centuryJsonBoundaryClosed": true,
+        "fixedLayerForbiddenFieldsGuarded": true,
+        "regressionFixturePathCount": 2,
+        "regressionFixtureDistinctFixedStateCount": 1
+      },
+      "auditDigest": "sha256:a1444019e51e3d076c0991faf7a0da66d31010433ed0246073257e55c5aa019b"
+    }
+  ],
+  "releaseAdmissionRecord": {
+    "version": "formal.release_admission_record.v1",
+    "status": "admitted",
+    "candidateManifestHash": "sha256:ffa5fec2b369e4edf1c0baea3a8163748ef505941896ab4be9bb7a0133851124",
+    "auditReportHashes": [
+      "sha256:d4a0298408911333b4759dd2896e50ee4577a76168613459272b14d1941f0399",
+      "sha256:baf89b9a89d0a63c53cd8415c423bcde293871b548c33b18e609d1727eca37ea",
+      "sha256:9a69c1eae76a276902d271a542911cd81f79812e711e4046c09c955affe4bc5e"
+    ]
+  },
+  "qualityGates": [
+    "every registered module satisfies the allowed dependency matrix",
+    "the local source import graph is acyclic",
+    "public state mutation remains candidate-only and preserves candidate markers",
+    "rule evaluation accepts only factory-produced canonical fact graphs",
+    "profile-scoped structural candidates never enter the canonical fact graph",
+    "ReleaseManifestV2 is an admitted external input to every candidate compilation",
+    "candidate compilation preserves one result for every calendar-admissible candidate",
+    "validation and compilation failures are never silently discarded",
+    "foundationDependencyHash binds coordinate and every admitted compiler dependency",
+    "every P2 candidate binds occurrence references and OccurrenceFact references",
+    "resolver input includes FormalState, canonical EffectOpSet, branchKey and resolverVersion",
+    "traditional sex metadata does not alter P0-P2 structural identity",
+    "pillar encoding round-trips in both directions",
+    "the 518400-state grammar space is audited exhaustively",
+    "the 518400-state relation space is audited exhaustively",
+    "the resolver is deterministic and replay-consistent",
+    "profile branches stay isolated and are never blended",
+    "rejection paths are covered by tests",
+    "unknown is never silently converted to true or false",
+    "full cryptographic digests are reproducible",
+    "typed facts separate semantic, derivation and complete-content identity",
+    "typed fact closure is delta-driven, stratum-safe and recursion-policy bounded",
+    "default birth compilation emits a path-preserving deduplicated NatalFixedBundleV1",
+    "fixed-state hashes exclude candidate and calendar lineage while path bindings retain both",
+    "fixed outputs contain no activation, transformation, strength, favorability, score, judgment or Effect fields",
+    "TemporalMatchIndexV1 covers all 10 stems and 12 branches with 60 reference-only pillar projections",
+    "calendar boundary identity uses integer milliseconds before comparison, ISO rendering and hashing",
+    "every calendar-admissible temporal envelope produces exactly one retained temporal result",
+    "six-layer temporal compilation binds 15 inter-layer pairs and 24 natal-layer pair slots per fixed state",
+    "temporal hidden stems descend only from branch occurrences and temporal growth stage binds subject target and profile",
+    "age 0 through 100 anniversary generation retains exactly 101 age results including failures",
+    "major-luck and minor-luck schedules are explicit inputs and are never guessed by the temporal kernel"
+  ],
+  "deferredQualityGates": {
+    "status": "contract_only_until_rule_runtime_and_ledgers_exist",
+    "requirements": [
+      "no Effect bypass exists outside the admitted mutation chain",
+      "provenance is closed from FormalState back to fact and source references",
+      "every rule carries a source reference"
+    ]
+  },
+  "releaseReport": {
+    "status": "snapshot_of_this_release_only",
+    "note": "These counts describe the current release run. They are observations, not architectural constants, and no contract may depend on them.",
+    "observedAt": "0.7.2",
+    "sourceModuleCount": 30,
+    "testCount": 140,
+    "lineCoveragePercent": 100,
+    "branchCoveragePercent": 100,
+    "functionCoveragePercent": 100
+  },
+  "semanticIdentity": {
+    "structuralDeterminism": "tested",
+    "traditionalFidelity": "profile_scoped_not_universal",
+    "sourceTraceability": "partial_p0_p2",
+    "interProfileAgreement": "not_established",
+    "predictiveValidity": "not_established",
+    "calibration": "not_established",
+    "releaseManifestHash": "sha256:fd327af23afa45b3ca300c0bd6834f9e6036266790ccb46e68188933efdc1bc8"
+  }
+}

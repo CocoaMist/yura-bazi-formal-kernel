@@ -1,0 +1,18 @@
+{
+  "version": "yuracore.birth_compilation_input.v1",
+  "subjectRef": "subject:2000-07-19-beijing-male",
+  "birth": {
+    "calendar": "gregorian",
+    "timeZoneId": "Asia/Shanghai",
+    "input": { "local": "2000-07-19T16:00:00" },
+    "location": {
+      "longitude": 116.4074,
+      "latitude": 39.9042,
+      "label": "Beijing"
+    },
+    "traditionalSexClass": "male"
+  },
+  "clockPolicies": ["civil", "true_solar"],
+  "precisionPolicy": { "mode": "retain_all" },
+  "activeProfileId": "bazi.relation_foundation.modern_common_raw_structure.v4"
+}

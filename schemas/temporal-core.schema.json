@@ -1,0 +1,272 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "bazi.temporal_core_contracts.schema.v1",
+  "$defs": {
+    "Sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "NonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "StringList": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/NonEmptyString" }
+    },
+    "Pillar": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stemId", "branchId"],
+      "properties": {
+        "stemId": {
+          "enum": ["jia", "yi", "bing", "ding", "wu", "ji", "geng", "xin", "ren", "gui"]
+        },
+        "branchId": {
+          "enum": ["zi", "chou", "yin", "mao", "chen", "si", "wu", "wei", "shen", "you", "xu", "hai"]
+        }
+      }
+    },
+    "TemporalLayer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "layerId", "pillarOccurrenceId", "stemOccurrenceId", "branchOccurrenceId",
+        "subjectRef", "stemId", "branchId", "validFromMs", "validUntilMs",
+        "termRef", "sourceTimeRef", "sourceRefs", "authorityRef",
+        "calculationProfileRef", "calendarBasisRef", "boundaryProfileRef",
+        "locationTimeRef", "inputDependencyRefs", "decisionRefs"
+      ],
+      "properties": {
+        "layerId": {
+          "enum": ["major_luck", "minor_luck", "year", "month", "day", "hour"]
+        },
+        "pillarOccurrenceId": { "$ref": "#/$defs/NonEmptyString" },
+        "stemOccurrenceId": { "$ref": "#/$defs/NonEmptyString" },
+        "branchOccurrenceId": { "$ref": "#/$defs/NonEmptyString" },
+        "subjectRef": {
+          "anyOf": [{ "$ref": "#/$defs/NonEmptyString" }, { "type": "null" }]
+        },
+        "stemId": { "$ref": "#/$defs/Pillar/properties/stemId" },
+        "branchId": { "$ref": "#/$defs/Pillar/properties/branchId" },
+        "validFromMs": { "type": "integer" },
+        "validUntilMs": { "type": "integer" },
+        "termRef": { "$ref": "#/$defs/NonEmptyString" },
+        "sourceTimeRef": { "$ref": "#/$defs/NonEmptyString" },
+        "sourceRefs": { "$ref": "#/$defs/StringList", "minItems": 1 },
+        "authorityRef": { "$ref": "#/$defs/NonEmptyString" },
+        "calculationProfileRef": { "$ref": "#/$defs/NonEmptyString" },
+        "calendarBasisRef": { "$ref": "#/$defs/NonEmptyString" },
+        "boundaryProfileRef": { "$ref": "#/$defs/NonEmptyString" },
+        "locationTimeRef": { "$ref": "#/$defs/NonEmptyString" },
+        "inputDependencyRefs": { "$ref": "#/$defs/StringList" },
+        "decisionRefs": { "$ref": "#/$defs/StringList" },
+        "temporalLayerHash": { "$ref": "#/$defs/Sha256" }
+      }
+    },
+    "TemporalLayerCandidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version", "subjectRef", "targetInstantMs", "targetTimeRef", "layers",
+        "provenanceRefs"
+      ],
+      "properties": {
+        "version": { "const": "bazi.temporal_layer_candidate.v1" },
+        "candidateOrdinal": { "type": "integer", "minimum": 0 },
+        "temporalCandidateId": { "$ref": "#/$defs/NonEmptyString" },
+        "calendarDecisionPathRef": { "$ref": "#/$defs/NonEmptyString" },
+        "subjectRef": { "$ref": "#/$defs/NonEmptyString" },
+        "targetInstantMs": { "type": "integer" },
+        "targetTimeRef": { "$ref": "#/$defs/NonEmptyString" },
+        "layers": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": { "$ref": "#/$defs/TemporalLayer" }
+        },
+        "provenanceRefs": { "$ref": "#/$defs/StringList", "minItems": 1 },
+        "temporalCandidateHash": { "$ref": "#/$defs/Sha256" }
+      }
+    },
+    "TemporalCandidateEnvelope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version", "candidateOrdinal", "temporalCandidateId",
+        "calendarDecisionPathRef", "candidate", "candidateEnvelopeHash"
+      ],
+      "properties": {
+        "version": { "const": "bazi.temporal_candidate_envelope.v1" },
+        "candidateOrdinal": { "type": "integer", "minimum": 0 },
+        "temporalCandidateId": { "$ref": "#/$defs/NonEmptyString" },
+        "calendarDecisionPathRef": { "$ref": "#/$defs/NonEmptyString" },
+        "candidate": { "type": "object" },
+        "candidateEnvelopeHash": { "$ref": "#/$defs/Sha256" }
+      }
+    },
+    "TemporalLayerCandidateSetV1": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version", "subjectRef", "candidateCount", "candidates",
+        "provenanceRefs", "temporalLayerCandidateSetHash"
+      ],
+      "properties": {
+        "version": { "const": "bazi.temporal_layer_candidate_set.v1" },
+        "subjectRef": { "$ref": "#/$defs/NonEmptyString" },
+        "candidateCount": { "type": "integer", "minimum": 0 },
+        "candidates": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/TemporalCandidateEnvelope" }
+        },
+        "provenanceRefs": { "$ref": "#/$defs/StringList", "minItems": 1 },
+        "temporalLayerCandidateSetHash": { "$ref": "#/$defs/Sha256" }
+      }
+    },
+    "TemporalKernelRequestV1": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version", "requestSchemaVersion", "natalFixedBundleHash",
+        "temporalLayerCandidateSetHash", "releaseManifestHash", "activeProfileId",
+        "subjectRef", "targetRangeRef", "provenanceRefs", "requestHash"
+      ],
+      "properties": {
+        "version": { "const": "bazi.temporal_kernel_request.v1" },
+        "requestSchemaVersion": { "const": "bazi.temporal_kernel_request.schema.v1" },
+        "natalFixedBundleHash": { "$ref": "#/$defs/Sha256" },
+        "temporalLayerCandidateSetHash": { "$ref": "#/$defs/Sha256" },
+        "releaseManifestHash": { "$ref": "#/$defs/Sha256" },
+        "activeProfileId": { "$ref": "#/$defs/NonEmptyString" },
+        "subjectRef": { "$ref": "#/$defs/NonEmptyString" },
+        "targetRangeRef": { "$ref": "#/$defs/NonEmptyString" },
+        "provenanceRefs": { "$ref": "#/$defs/StringList", "minItems": 1 },
+        "requestHash": { "$ref": "#/$defs/Sha256" },
+        "metadata": {}
+      }
+    },
+    "TemporalCandidateCompilationResultV1": {
+      "type": "object",
+      "required": [
+        "version", "status", "candidateOrdinal", "temporalCandidateId",
+        "candidateEnvelopeHash", "requestHash", "releaseManifestHash",
+        "selectedRelationProfileHash", "resultHash"
+      ],
+      "properties": {
+        "version": { "const": "bazi.temporal_candidate_compilation_result.v1" },
+        "status": {
+          "enum": [
+            "compiled", "validation_failed", "compilation_failed",
+            "internal_error", "natal_unavailable"
+          ]
+        },
+        "candidateOrdinal": { "type": "integer", "minimum": 0 },
+        "temporalCandidateId": { "$ref": "#/$defs/NonEmptyString" },
+        "candidateEnvelopeHash": { "$ref": "#/$defs/Sha256" },
+        "temporalCandidateHash": { "$ref": "#/$defs/Sha256" },
+        "requestHash": { "$ref": "#/$defs/Sha256" },
+        "releaseManifestHash": { "$ref": "#/$defs/Sha256" },
+        "selectedRelationProfileHash": { "$ref": "#/$defs/Sha256" },
+        "candidate": { "$ref": "#/$defs/TemporalLayerCandidate" },
+        "interTemporalRelationSet": { "type": "object" },
+        "fixedStateResultCount": { "type": "integer", "minimum": 0 },
+        "fixedStateResults": { "type": "array", "items": { "type": "object" } },
+        "failedPhase": { "$ref": "#/$defs/NonEmptyString" },
+        "stableErrorCode": { "$ref": "#/$defs/NonEmptyString" },
+        "diagnosticHash": { "$ref": "#/$defs/Sha256" },
+        "retryable": { "type": "boolean" },
+        "deterministic": { "type": "boolean" },
+        "diagnostics": { "type": "object" },
+        "judgmentStatus": { "const": "not_evaluated" },
+        "causalStatus": { "const": "not_modeled" },
+        "effectEligible": { "const": false },
+        "resultHash": { "$ref": "#/$defs/Sha256" }
+      }
+    },
+    "TemporalKernelBatchV1": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version", "requestHash", "temporalLayerCandidateSetHash",
+        "natalFixedBundleHash", "releaseManifestHash", "selectedRelationProfileHash",
+        "inputCount", "resultCount", "status", "counts", "resultHashes", "results",
+        "judgmentStatus", "causalStatus", "effectEligible", "temporalKernelBatchHash"
+      ],
+      "properties": {
+        "version": { "const": "bazi.temporal_kernel_batch.v1" },
+        "requestHash": { "$ref": "#/$defs/Sha256" },
+        "temporalLayerCandidateSetHash": { "$ref": "#/$defs/Sha256" },
+        "natalFixedBundleHash": { "$ref": "#/$defs/Sha256" },
+        "releaseManifestHash": { "$ref": "#/$defs/Sha256" },
+        "selectedRelationProfileHash": { "$ref": "#/$defs/Sha256" },
+        "inputCount": { "type": "integer", "minimum": 0 },
+        "resultCount": { "type": "integer", "minimum": 0 },
+        "status": { "enum": ["empty", "compiled", "failed", "partial_failure"] },
+        "counts": { "type": "object" },
+        "resultHashes": { "type": "array", "items": { "$ref": "#/$defs/Sha256" } },
+        "results": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/TemporalCandidateCompilationResultV1" }
+        },
+        "judgmentStatus": { "const": "not_evaluated" },
+        "causalStatus": { "const": "not_modeled" },
+        "effectEligible": { "const": false },
+        "temporalKernelBatchHash": { "$ref": "#/$defs/Sha256" },
+        "requestMetadata": {}
+      }
+    },
+    "CenturyScheduleSegment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "segmentId", "pillar", "validFrom", "validUntil", "termRef", "sourceRefs",
+        "authorityRef", "calculationProfileRef", "calendarBasisRef",
+        "boundaryProfileRef", "locationTimeRef", "inputDependencyRefs", "decisionRefs"
+      ],
+      "properties": {
+        "segmentId": { "$ref": "#/$defs/NonEmptyString" },
+        "pillar": { "$ref": "#/$defs/Pillar" },
+        "validFrom": { "type": "string", "format": "date-time" },
+        "validUntil": { "type": "string", "format": "date-time" },
+        "termRef": { "$ref": "#/$defs/NonEmptyString" },
+        "sourceRefs": { "$ref": "#/$defs/StringList", "minItems": 1 },
+        "authorityRef": { "$ref": "#/$defs/NonEmptyString" },
+        "calculationProfileRef": { "$ref": "#/$defs/NonEmptyString" },
+        "calendarBasisRef": { "$ref": "#/$defs/NonEmptyString" },
+        "boundaryProfileRef": { "$ref": "#/$defs/NonEmptyString" },
+        "locationTimeRef": { "$ref": "#/$defs/NonEmptyString" },
+        "inputDependencyRefs": { "$ref": "#/$defs/StringList" },
+        "decisionRefs": { "$ref": "#/$defs/StringList" }
+      }
+    },
+    "CenturyTemporalPlanV1": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version", "subjectRef", "snapshotRef", "birthLocal", "ageFrom", "ageThrough",
+        "anniversaryProfileId", "calendarContext", "majorLuckSchedule",
+        "minorLuckSchedule", "provenance"
+      ],
+      "properties": {
+        "version": { "const": "bazi.century_temporal_plan.v1" },
+        "subjectRef": { "$ref": "#/$defs/NonEmptyString" },
+        "snapshotRef": { "$ref": "#/$defs/NonEmptyString" },
+        "birthLocal": { "$ref": "#/$defs/NonEmptyString" },
+        "ageFrom": { "const": 0 },
+        "ageThrough": { "const": 100 },
+        "anniversaryProfileId": {
+          "const": "bazi.age_sampling.gregorian_local_anniversary_feb28.v1"
+        },
+        "calendarContext": { "type": "object" },
+        "majorLuckSchedule": {
+          "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/CenturyScheduleSegment" }
+        },
+        "minorLuckSchedule": {
+          "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/CenturyScheduleSegment" }
+        },
+        "provenance": {}
+      }
+    }
+  }
+}

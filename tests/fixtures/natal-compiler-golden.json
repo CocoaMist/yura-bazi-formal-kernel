@@ -1,0 +1,31 @@
+{
+  "fixtureVersion": "bazi.natal_compiler_golden.v1",
+  "snapshot": {
+    "version": "bazi.chart_snapshot.v2",
+    "snapshotId": "snapshot:golden",
+    "subjectRef": "subject:golden",
+    "validTimeRef": "time:2000-07-19T16:00:00+08:00",
+    "traditionalSexClass": "male",
+    "provenanceRef": "fixture:golden",
+    "pillars": {
+      "year": { "stemId": "geng", "branchId": "chen" },
+      "month": { "stemId": "gui", "branchId": "wei" },
+      "day": { "stemId": "wu", "branchId": "yin" },
+      "hour": { "stemId": "geng", "branchId": "shen" }
+    }
+  },
+  "expected": {
+    "pillarCode24": 14738640,
+    "index19": 143456,
+    "factCount": 65,
+    "derivationCount": 65,
+    "candidateCount": 6,
+    "candidateTypes": [
+      "branch_directional_punishment_candidate",
+      "branch_six_clash_candidate",
+      "partial_group_membership",
+      "partial_three_member_punishment_membership",
+      "stem_five_combination_candidate"
+    ]
+  }
+}

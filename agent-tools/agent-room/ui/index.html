@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent Room</title>
+  <style>
+    :root {
+      --bg: #111214;
+      --panel: #1b1d22;
+      --line: #2c3038;
+      --text: #ececec;
+      --muted: #9aa3af;
+      --accent: #7dd3c0;
+      --warn: #e7b549;
+      --bad: #e07a7a;
+      --ok: #7dce8a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 14px/1.45 "Segoe UI", "PingFang SC", sans-serif;
+    }
+    header {
+      display: flex;
+      gap: 16px;
+      align-items: baseline;
+      justify-content: space-between;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--line);
+    }
+    h1 { margin: 0; font-size: 18px; font-weight: 600; }
+    .meta { color: var(--muted); }
+    main {
+      display: grid;
+      grid-template-columns: 240px 1fr 280px;
+      min-height: calc(100vh - 58px);
+    }
+    aside, section { padding: 16px 18px; overflow: auto; }
+    aside { border-right: 1px solid var(--line); }
+    .side { border-left: 1px solid var(--line); }
+    h2 { margin: 0 0 12px; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+    .room, .agent, .event, .tool {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+    }
+    .room.active { border-color: var(--accent); }
+    button.room {
+      display: block;
+      width: 100%;
+      color: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+    .row { display: flex; justify-content: space-between; gap: 12px; }
+    .state { font-variant: small-caps; color: var(--accent); }
+    .state.completed { color: var(--ok); }
+    .state.blocked { color: var(--bad); }
+    .state.planning, .state.running, .state.resumed { color: var(--warn); }
+    .objective { margin: 8px 0 16px; white-space: pre-wrap; }
+    .empty { color: var(--muted); }
+    .summary { color: var(--muted); margin-top: 6px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Agent Room</h1>
+    <div class="meta" id="clock">等待房间</div>
+  </header>
+  <main>
+    <aside>
+      <h2>Rooms</h2>
+      <div id="rooms" class="empty">还没有运行记录</div>
+    </aside>
+    <section>
+      <div class="row">
+        <h2>Now</h2>
+        <div class="state" id="state">idle</div>
+      </div>
+      <p class="objective" id="objective">启动一次 agent room 后，这里会显示当前目标。</p>
+      <h2>Agents</h2>
+      <div id="agents" class="empty">无</div>
+      <h2>Messages</h2>
+      <div id="messages" class="empty">无</div>
+    </section>
+    <aside class="side">
+      <h2>Tools</h2>
+      <div id="tool-counts" class="meta">0 / 0</div>
+      <div id="tools" class="empty">无</div>
+    </aside>
+  </main>
+  <script>
+    const params = new URLSearchParams(location.search);
+    let selected = params.get('room') || '';
+
+    const $ = id => document.getElementById(id);
+    function stateClass(state) {
+      return `state ${state || 'idle'}`;
+    }
+    function render(data) {
+      const rooms = data.rooms || [];
+      if (!selected && rooms[0]) selected = rooms[0].room_id;
+      $('clock').textContent = data.room_id
+        ? `${data.room_id} · ${data.updated_at || 'live'}`
+        : '没有正在观察的房间';
+      $('state').className = stateClass(data.state);
+      $('state').textContent = data.state || 'idle';
+      $('objective').textContent = data.objective || '启动一次 agent room 后，这里会显示当前目标。';
+      $('rooms').innerHTML = rooms.length ? rooms.map(room => `
+        <button class="room ${room.room_id === selected ? 'active' : ''}" data-room="${room.room_id}">
+          <div class="row"><strong>${room.room_id}</strong><span class="${stateClass(room.state)}">${room.state}</span></div>
+          <div class="summary">${room.objective || ''}</div>
+        </button>
+      `).join('') : '<div class="empty">还没有运行记录</div>';
+      $('agents').innerHTML = (data.agents || []).length ? data.agents.map(agent => `
+        <div class="agent">
+          <div class="row"><strong>${agent.agent_id}</strong><span>${agent.status}</span></div>
+          <div class="summary">${agent.specialty || ''}${agent.summary ? ' · ' + agent.summary : ''}</div>
+        </div>
+      `).join('') : '<div class="empty">无</div>';
+      $('messages').innerHTML = (data.recent_messages || []).length ? data.recent_messages.map(row => `
+        <div class="event">
+          <div class="row"><strong>${row.agent_id}</strong><span>${row.status || ''}</span></div>
+          <div class="summary">${row.summary || ''}</div>
+        </div>
+      `).join('') : '<div class="empty">无</div>';
+      const counts = data.tool_counts || { started: 0, completed: 0, failed: 0 };
+      $('tool-counts').textContent = `${counts.completed}/${counts.started} completed · ${counts.failed} failed`;
+      $('tools').innerHTML = (data.recent_tools || []).length ? data.recent_tools.map(row => `
+        <div class="tool">
+          <div class="row"><strong>${row.tool}</strong><span>${row.ok == null ? 'running' : row.ok ? 'ok' : 'fail'}</span></div>
+          <div class="summary">${row.agent_id || ''}</div>
+        </div>
+      `).join('') : '<div class="empty">无</div>';
+      for (const button of document.querySelectorAll('button.room')) {
+        button.onclick = () => {
+          selected = button.dataset.room;
+          history.replaceState(null, '', `?room=${encodeURIComponent(selected)}`);
+          load();
+        };
+      }
+    }
+    async function load() {
+      const query = selected ? `?room=${encodeURIComponent(selected)}` : '';
+      const data = await fetch(`/api/status${query}`).then(row => row.json());
+      if (data.room_id) selected = data.room_id;
+      render(data);
+    }
+    const stream = new EventSource('/api/stream');
+    stream.onmessage = () => load();
+    load();
+    setInterval(load, 2000);
+  </script>
+</body>
+</html>

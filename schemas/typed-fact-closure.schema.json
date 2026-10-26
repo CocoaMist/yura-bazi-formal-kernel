@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "formal.typed_fact_closure_contracts.schema.v1",
+  "$defs": {
+    "TypedFactClosureProfileV1": {
+      "type": "object",
+      "required": ["version", "closureRuleRegistryHash", "closureEngineIdentity", "releaseManifestHash", "maxRounds", "maxFacts", "closureProfileHash"]
+    },
+    "TypedFactClosureV2": {
+      "type": "object",
+      "required": ["version", "closureProfileHash", "closureRuleRegistryHash", "closureEngineIdentity", "releaseManifestHash", "seedSetHash", "maxRounds", "maxFacts", "iteration", "status", "factCount", "derivationCount", "deltaCount", "facts", "derivations", "closureHash"],
+      "properties": {
+        "status": { "enum": ["running", "fixed_point", "limit_reached", "non_converged", "failed"] }
+      }
+    }
+  }
+}

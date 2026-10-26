@@ -1,0 +1,218 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "bazi.natal_fixed_contracts.schema.v1",
+  "$defs": {
+    "Sha256": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+    "HashMetadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["hashProfileId", "hashScope", "hashViewSchemaVersion"],
+      "properties": {
+        "hashProfileId": { "type": "string", "minLength": 1 },
+        "hashScope": { "enum": ["content_identity", "lineage_bound_instance", "compiled_artifact"] },
+        "hashViewSchemaVersion": { "type": "string", "minLength": 1 }
+      }
+    },
+    "RawRelationMatchV1": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "rawRelationType", "relationRuleId", "membership", "arity", "directionality", "roleBindings", "occurrenceRefs", "supportingFactRefs", "requiredSymbols", "missingRequirements", "selectedRelationProfileHash", "hashMetadata", "contentHash"],
+      "properties": {
+        "version": { "const": "bazi.raw_relation_match.v1" },
+        "rawRelationType": { "type": "string", "minLength": 1 },
+        "relationRuleId": { "type": "string", "minLength": 1 },
+        "membership": { "enum": ["complete_membership", "partial_membership"] },
+        "arity": { "type": "integer", "minimum": 2 },
+        "directionality": { "type": "string", "minLength": 1 },
+        "roleBindings": { "type": "array" },
+        "occurrenceRefs": { "type": "array", "items": { "type": "string" } },
+        "supportingFactRefs": { "type": "array", "items": { "type": "string" } },
+        "requiredSymbols": { "type": "array", "items": { "type": "string" } },
+        "missingRequirements": { "type": "array" },
+        "selectedRelationProfileHash": { "$ref": "#/$defs/Sha256" },
+        "traditionalCorrespondence": { "type": "object" },
+        "hashMetadata": { "$ref": "#/$defs/HashMetadata" },
+        "contentHash": { "$ref": "#/$defs/Sha256" }
+      }
+    },
+    "ProfileScopedRawRelationMatchesV1": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "selectedRelationProfileHash", "profileId", "profileContentHash", "canonicalFactGraphHash", "relationContentHash", "structuralCandidateEnumeratorHash", "matchCount", "matches", "hashMetadata", "rawRelationMatchSetHash"],
+      "properties": {
+        "version": { "const": "bazi.profile_scoped_raw_relation_matches.v1" },
+        "selectedRelationProfileHash": { "$ref": "#/$defs/Sha256" },
+        "profileId": { "type": "string", "minLength": 1 },
+        "profileContentHash": { "$ref": "#/$defs/Sha256" },
+        "canonicalFactGraphHash": { "$ref": "#/$defs/Sha256" },
+        "relationContentHash": { "$ref": "#/$defs/Sha256" },
+        "structuralCandidateEnumeratorHash": { "$ref": "#/$defs/Sha256" },
+        "matchCount": { "type": "integer", "minimum": 0 },
+        "matches": { "type": "array", "items": { "$ref": "#/$defs/RawRelationMatchV1" } },
+        "hashMetadata": { "$ref": "#/$defs/HashMetadata" },
+        "rawRelationMatchSetHash": { "$ref": "#/$defs/Sha256" }
+      }
+    },
+    "TemporalOccurrenceV1": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["occurrenceId", "layer", "slot", "stemId", "sourceTimeRef"],
+          "properties": {
+            "occurrenceId": { "type": "string", "minLength": 1 },
+            "layer": { "type": "string", "minLength": 1 },
+            "slot": { "type": "string", "minLength": 1 },
+            "stemId": { "enum": ["jia", "yi", "bing", "ding", "wu", "ji", "geng", "xin", "ren", "gui"] },
+            "sourceTimeRef": { "type": "string", "minLength": 1 }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["occurrenceId", "layer", "slot", "branchId", "sourceTimeRef"],
+          "properties": {
+            "occurrenceId": { "type": "string", "minLength": 1 },
+            "layer": { "type": "string", "minLength": 1 },
+            "slot": { "type": "string", "minLength": 1 },
+            "branchId": { "enum": ["zi", "chou", "yin", "mao", "chen", "si", "wu", "wei", "shen", "you", "xu", "hai"] },
+            "sourceTimeRef": { "type": "string", "minLength": 1 }
+          }
+        }
+      ]
+    },
+    "Pillar60IndexRefV1": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sexagenaryIndex", "pillarId", "stemId", "branchId", "stemIndexRef", "branchIndexRef"],
+      "properties": {
+        "sexagenaryIndex": { "type": "integer", "minimum": 0, "maximum": 59 },
+        "pillarId": { "type": "string", "minLength": 1 },
+        "stemId": { "type": "string", "minLength": 1 },
+        "branchId": { "type": "string", "minLength": 1 },
+        "stemIndexRef": { "type": "string", "pattern": "^byStem\\." },
+        "branchIndexRef": { "type": "string", "pattern": "^byBranch\\." }
+      }
+    },
+    "TemporalMatchIndexV1": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "canonicalFactGraphHash", "rawRelationMatchSetHash", "selectedRelationProfileHash", "profileId", "profileContentHash", "ruleRegistryHash", "deterministicTableManifestHash", "sourceFactRefs", "byStem", "byBranch", "byPillar60", "hashMetadata", "temporalMatchIndexHash"],
+      "properties": {
+        "version": { "const": "bazi.temporal_match_index.v1" },
+        "canonicalFactGraphHash": { "$ref": "#/$defs/Sha256" },
+        "rawRelationMatchSetHash": { "$ref": "#/$defs/Sha256" },
+        "selectedRelationProfileHash": { "$ref": "#/$defs/Sha256" },
+        "profileId": { "type": "string", "minLength": 1 },
+        "profileContentHash": { "$ref": "#/$defs/Sha256" },
+        "ruleRegistryHash": { "$ref": "#/$defs/Sha256" },
+        "deterministicTableManifestHash": { "$ref": "#/$defs/Sha256" },
+        "sourceFactRefs": { "type": "array", "items": { "type": "string" } },
+        "byStem": {
+          "type": "object",
+          "propertyNames": { "enum": ["jia", "yi", "bing", "ding", "wu", "ji", "geng", "xin", "ren", "gui"] },
+          "minProperties": 10,
+          "maxProperties": 10,
+          "additionalProperties": { "type": "object" }
+        },
+        "byBranch": {
+          "type": "object",
+          "propertyNames": { "enum": ["zi", "chou", "yin", "mao", "chen", "si", "wu", "wei", "shen", "you", "xu", "hai"] },
+          "minProperties": 12,
+          "maxProperties": 12,
+          "additionalProperties": { "type": "object" }
+        },
+        "byPillar60": { "type": "array", "minItems": 60, "maxItems": 60, "items": { "$ref": "#/$defs/Pillar60IndexRefV1" } },
+        "hashMetadata": { "$ref": "#/$defs/HashMetadata" },
+        "temporalMatchIndexHash": { "$ref": "#/$defs/Sha256" }
+      }
+    },
+    "RawStructuralMatchSetV1": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "fixedStateHash", "temporalMatchIndexHash", "selectedRelationProfileHash", "temporalOccurrenceCount", "matchCount", "temporalOccurrences", "matches", "hashMetadata", "rawStructuralMatchSetHash"],
+      "properties": {
+        "version": { "const": "bazi.raw_structural_match_set.v1" },
+        "fixedStateHash": { "$ref": "#/$defs/Sha256" },
+        "temporalMatchIndexHash": { "$ref": "#/$defs/Sha256" },
+        "selectedRelationProfileHash": { "$ref": "#/$defs/Sha256" },
+        "temporalOccurrenceCount": { "type": "integer", "minimum": 0 },
+        "matchCount": { "type": "integer", "minimum": 0 },
+        "temporalOccurrences": { "type": "array", "items": { "$ref": "#/$defs/TemporalOccurrenceV1" } },
+        "matches": { "type": "array", "items": { "type": "object" } },
+        "hashMetadata": { "$ref": "#/$defs/HashMetadata" },
+        "rawStructuralMatchSetHash": { "$ref": "#/$defs/Sha256" }
+      }
+    },
+    "SourceProjectionDerivationV1": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "derivationKind", "sourceArtifactRef", "sourcePath", "targetFixedStateRef", "targetFactRef", "hashMetadata", "derivationHash"],
+      "properties": {
+        "version": { "const": "bazi.source_projection_derivation.v1" },
+        "derivationKind": { "const": "source_projection" },
+        "sourceArtifactRef": { "$ref": "#/$defs/Sha256" },
+        "sourcePath": { "type": "string", "pattern": "^\\$\\.snapshot\\.pillars\\." },
+        "targetFixedStateRef": { "$ref": "#/$defs/Sha256" },
+        "targetFactRef": { "type": "string", "pattern": "^fact:root_pillar:" },
+        "hashMetadata": { "$ref": "#/$defs/HashMetadata" },
+        "derivationHash": { "$ref": "#/$defs/Sha256" }
+      }
+    },
+    "NatalFixedPathBindingV1": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "candidateOrdinal", "candidateId", "candidateSnapshotHash", "candidateDecisionPathRef", "candidateSnapshotRef", "calendarResolutionHash", "compilationStatus", "resultHash", "fixedStateRef", "sourceProjectionDerivations", "hashMetadata", "pathBindingHash"],
+      "properties": {
+        "version": { "const": "bazi.natal_fixed_path_binding.v1" },
+        "candidateOrdinal": { "type": "integer", "minimum": 0 },
+        "candidateId": { "type": "string", "minLength": 1 },
+        "candidateSnapshotHash": { "$ref": "#/$defs/Sha256" },
+        "candidateDecisionPathRef": { "type": "string", "minLength": 1 },
+        "candidateSnapshotRef": { "type": "object" },
+        "calendarResolutionHash": { "$ref": "#/$defs/Sha256" },
+        "compilationStatus": { "enum": ["compiled", "validation_failed", "compilation_failed", "internal_error"] },
+        "resultHash": { "$ref": "#/$defs/Sha256" },
+        "fixedStateRef": { "anyOf": [{ "$ref": "#/$defs/Sha256" }, { "type": "null" }] },
+        "sourceProjectionDerivations": { "type": "array", "maxItems": 4, "items": { "$ref": "#/$defs/SourceProjectionDerivationV1" } },
+        "hashMetadata": { "$ref": "#/$defs/HashMetadata" },
+        "pathBindingHash": { "$ref": "#/$defs/Sha256" }
+      }
+    },
+    "NatalFixedStateV1": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "coordinates", "canonicalFactGraph", "structuralMaterials", "profileScopedRawRelationMatches", "temporalMatchIndex", "fixedDependencies", "hashMetadata", "fixedStateHash"],
+      "properties": {
+        "version": { "const": "bazi.natal_fixed_state.v1" },
+        "coordinates": { "type": "object" },
+        "canonicalFactGraph": { "type": "object" },
+        "structuralMaterials": { "type": "object" },
+        "profileScopedRawRelationMatches": { "$ref": "#/$defs/ProfileScopedRawRelationMatchesV1" },
+        "temporalMatchIndex": { "$ref": "#/$defs/TemporalMatchIndexV1" },
+        "fixedDependencies": { "type": "object" },
+        "hashMetadata": { "$ref": "#/$defs/HashMetadata" },
+        "fixedStateHash": { "$ref": "#/$defs/Sha256" }
+      }
+    },
+    "NatalFixedBundleV1": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "subjectContext", "calendarResolution", "release", "sourceCompilation", "distinctFixedStateCount", "pathCount", "pathBindings", "fixedStatesByHash", "audit", "hashMetadata", "bundleHash"],
+      "properties": {
+        "version": { "const": "bazi.natal_fixed_bundle.v1" },
+        "subjectContext": { "type": "object" },
+        "calendarResolution": { "type": "object" },
+        "release": { "type": "object" },
+        "sourceCompilation": { "type": "object" },
+        "distinctFixedStateCount": { "type": "integer", "minimum": 0 },
+        "pathCount": { "type": "integer", "minimum": 0 },
+        "pathBindings": { "type": "array", "items": { "$ref": "#/$defs/NatalFixedPathBindingV1" } },
+        "fixedStatesByHash": { "type": "object", "propertyNames": { "pattern": "^sha256:[0-9a-f]{64}$" }, "additionalProperties": { "$ref": "#/$defs/NatalFixedStateV1" } },
+        "audit": { "type": "object" },
+        "hashMetadata": { "$ref": "#/$defs/HashMetadata" },
+        "bundleHash": { "$ref": "#/$defs/Sha256" }
+      }
+    }
+  }
+}

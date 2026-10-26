@@ -1,0 +1,1880 @@
+{
+  "version": "bazi.three_limits_temporal_sample.v1",
+  "generatedFor": {
+    "birthInput": "2000-07-19T16:00:00+08:00",
+    "place": "Beijing",
+    "traditionalSexClass": "male",
+    "queryLocal": "2026-09-02T16:00:00"
+  },
+  "scope": {
+    "semantics": "research_only_structural_candidates",
+    "sourceLocatorsVerified": false,
+    "competingProfilesAveraged": false,
+    "judgmentProduced": false,
+    "eventProduced": false,
+    "deathOrLongevityClaimProduced": false,
+    "effectEligible": false
+  },
+  "chart": {
+    "version": "bazi.capability_chart.v1",
+    "subjectRef": "subject:2000-07-19-beijing-male",
+    "snapshotRef": "snapshot:geng-chen_gui-wei_wu-yin_geng-shen",
+    "validTimeRef": "time:2000-07-19T16:00:00+08:00",
+    "pillars": {
+      "year": {
+        "stemId": "geng",
+        "branchId": "chen"
+      },
+      "month": {
+        "stemId": "gui",
+        "branchId": "wei"
+      },
+      "day": {
+        "stemId": "wu",
+        "branchId": "yin"
+      },
+      "hour": {
+        "stemId": "geng",
+        "branchId": "shen"
+      }
+    },
+    "provenance": {
+      "version": "bazi.capability_provenance.v1",
+      "authorityId": "yuracore.natal_compiler_golden_fixture",
+      "authorityVersion": "1.0.0",
+      "sourceRefs": [
+        "workspace:tests/fixtures/natal-compiler-golden.json",
+        "workspace:examples/2000-07-19-beijing-male.input.json"
+      ],
+      "algorithmRefs": [],
+      "requestHash": "sha256:fc848b2c28e54c8ed7a19be7f4ad7bc237e402fd23cfbe94078f93987cbd7fd3"
+    },
+    "chartContentHash": "sha256:0fd88507a83406fc36f8132db0479c1d39b78bf0e03d3555decef9f341cdc774",
+    "chartIdentityHash": "sha256:1bd026759275b0e80097e3787fcea882840863f67997e973f8e9a8ff823e9419"
+  },
+  "timeRequest": {
+    "version": "bazi.time_request.v1",
+    "mode": "instant",
+    "calendar": "gregorian",
+    "timeZoneId": "Asia/Shanghai",
+    "location": {
+      "longitude": 116.4074,
+      "latitude": 39.9042,
+      "label": "Beijing"
+    },
+    "solarTime": {
+      "mode": "civil"
+    },
+    "boundaryProfileId": "bazi.time_boundaries.jie_midnight_zi_split.v2",
+    "input": {
+      "local": "2026-09-02T16:00:00"
+    }
+  },
+  "calendarResolution": {
+    "version": "bazi.calendar_resolution.v2",
+    "request": {
+      "version": "bazi.time_request.v1",
+      "mode": "instant",
+      "calendar": "gregorian",
+      "timeZoneId": "Asia/Shanghai",
+      "location": {
+        "longitude": 116.4074,
+        "latitude": 39.9042,
+        "label": "Beijing"
+      },
+      "solarTime": {
+        "mode": "civil"
+      },
+      "boundaryProfileId": "bazi.time_boundaries.jie_midnight_zi_split.v2",
+      "input": {
+        "local": "2026-09-02T16:00:00"
+      },
+      "requestHash": "sha256:2482047b087869cde6f598bd49fe823ef3e99259a4f19e7d41350493f4621de8"
+    },
+    "provider": {
+      "providerId": "bazi.reference_calendar.intl_meeus",
+      "version": "1.1.0",
+      "sourceRefs": [
+        "standard:gbt-33661-2017",
+        "standard:iana-tzdb",
+        "rfc:9636",
+        "book:dershowitz-reingold:calendrical-calculations:chinese-calendar",
+        "book:meeus:astronomical-algorithms",
+        "runtime:icu:78.2",
+        "runtime:cldr:48.0",
+        "runtime:tz:2025c",
+        "reference:yuracore:solar-time-and-birth-chart:read-only"
+      ]
+    },
+    "resolved": {
+      "version": "bazi.resolved_time_query.v2",
+      "mode": "instant",
+      "at": "2026-09-02T08:00:00.000Z",
+      "atMs": 1788336000000,
+      "layers": {
+        "year": {
+          "stemId": "bing",
+          "branchId": "wu"
+        },
+        "month": {
+          "stemId": "bing",
+          "branchId": "shen"
+        },
+        "day": {
+          "stemId": "ji",
+          "branchId": "mao"
+        },
+        "hour": {
+          "stemId": "ren",
+          "branchId": "shen"
+        }
+      },
+      "provenance": {
+        "version": "bazi.capability_provenance.v1",
+        "authorityId": "bazi.reference_calendar.intl_meeus",
+        "authorityVersion": "1.1.0",
+        "sourceRefs": [
+          "standard:gbt-33661-2017",
+          "standard:iana-tzdb",
+          "rfc:9636",
+          "book:dershowitz-reingold:calendrical-calculations:chinese-calendar",
+          "book:meeus:astronomical-algorithms",
+          "runtime:icu:78.2",
+          "runtime:cldr:48.0",
+          "runtime:tz:2025c",
+          "reference:yuracore:solar-time-and-birth-chart:read-only"
+        ],
+        "algorithmRefs": [
+          "iana-intl-local-time.v1",
+          "meeus-two-term-solar-longitude.v1",
+          "bazi-five-tigers.v1",
+          "bazi-five-rats.v1",
+          "bazi-julian-day-cycle.v1"
+        ],
+        "requestHash": "sha256:2482047b087869cde6f598bd49fe823ef3e99259a4f19e7d41350493f4621de8",
+        "metadata": {
+          "timeZoneId": "Asia/Shanghai",
+          "runtimeVersions": {
+            "icu": "78.2",
+            "cldr": "48.0",
+            "tz": "2025c"
+          },
+          "calendar": "gregorian",
+          "solarTimeMode": "civil",
+          "boundaryProfileId": "bazi.time_boundaries.jie_midnight_zi_split.v2",
+          "solarTermPrecision": "approximate_fail_closed_within_8_minutes",
+          "resolvedGregorianLocal": {
+            "year": 2026,
+            "month": 9,
+            "day": 2,
+            "hour": 16,
+            "minute": 0,
+            "second": 0,
+            "millisecond": 0
+          },
+          "lunarInput": null
+        }
+      },
+      "decisionTrace": {
+        "version": "bazi.calendar_decision_trace.v2",
+        "requestHash": "sha256:2482047b087869cde6f598bd49fe823ef3e99259a4f19e7d41350493f4621de8",
+        "calendarProfileId": "bazi.time_boundaries.jie_midnight_zi_split.v2",
+        "input": {
+          "calendar": "gregorian",
+          "declaredPrecision": "second",
+          "civilInput": {
+            "year": 2026,
+            "month": 9,
+            "day": 2,
+            "hour": 16,
+            "minute": 0,
+            "second": 0,
+            "millisecond": 0
+          },
+          "utcInstantMs": 1788336000000,
+          "utcInstant": "2026-09-02T08:00:00.000Z",
+          "timeZoneId": "Asia/Shanghai",
+          "location": {
+            "longitude": 116.4074,
+            "latitude": 39.9042,
+            "label": "Beijing"
+          },
+          "solarTime": {
+            "mode": "civil"
+          }
+        },
+        "decisions": {
+          "timeZoneRule": "iana_tzdb_via_intl",
+          "historicalOffsetResolved": true,
+          "solarClock": "civil",
+          "timeQuantization": "integer_millisecond_round_half_up_from_positive_epoch",
+          "effectiveClockMs": 1788364800000,
+          "effectiveClockIso": "2026-09-02T16:00:00.000",
+          "solarCorrectionMs": 0,
+          "yearBoundary": "li_chun_jie",
+          "monthBoundary": "twelve_jie_not_zhongqi",
+          "dayBoundary": "effective_clock_midnight",
+          "ziHourRule": "zi_spans_23_to_01_day_changes_at_midnight",
+          "previousJieInstantMs": 1786103232047,
+          "previousJieInstant": "2026-08-07T11:47:12.047Z",
+          "nextJieInstantMs": 1788792627233,
+          "nextJieInstant": "2026-09-07T14:50:27.233Z"
+        },
+        "boundaryDistances": {
+          "previousHourBoundaryMs": 3600000,
+          "nextHourBoundaryMs": 3600000,
+          "previousDayBoundaryMs": 57600000,
+          "nextDayBoundaryMs": 28800000,
+          "previousJieBoundaryMs": 2232767953,
+          "nextJieBoundaryMs": 456627233
+        },
+        "uncertainty": {
+          "status": "bounded_reference_candidate",
+          "solarTermFailClosedWindowMs": 480000,
+          "providerAuthority": "reference_candidate",
+          "unresolved": [
+            "multi_provider_agreement",
+            "birth_record_precision_beyond_declared_input"
+          ]
+        },
+        "alternatives": []
+      }
+    },
+    "resolutionHash": "sha256:be866f5f0b224927f0ac67be6951a95fcee1899ea65c46053b9a2eeeef4e4a57"
+  },
+  "explicitAgeCoordinate": {
+    "version": "bazi.age_coordinate.v1",
+    "coordinateId": "age:elapsed-anniversary:2026-09-02:life-year-27",
+    "lifeYearOrdinal": 27,
+    "reckoningProfileId": "bazi.age_reckoning.elapsed_anniversary_life_year_ordinal.v1",
+    "birthValidTimeRef": "time:2000-07-19T16:00:00+08:00",
+    "at": "2026-09-02T08:00:00.000Z",
+    "decisionRefs": [
+      "input:birth:2000-07-19T16:00:00+08:00",
+      "decision:twenty-six-completed-anniversaries-enters-life-year-27"
+    ],
+    "ageCoordinateHash": "sha256:69c9128311151c49f3191bcb99fcaff729dce2636fb6c65848919cf6a7b2e8bd"
+  },
+  "observations": [
+    {
+      "profileId": "bazi.life_stage.three_limits.wuxing_jingji_25_25_50.v1",
+      "modelId": "bazi.life_stage_model.wuxing_jingji.adjacent_pair.v1",
+      "boundaryInterpretationId": "life_years_1_25__26_50__51_100",
+      "stageId": "middle_limit",
+      "lifeYearOrdinal": 27,
+      "governingPillarOccurrenceRefs": [
+        "natal.month",
+        "natal.day"
+      ],
+      "candidateId": "sha256:41b29e06c8c389c98c81867bccb69bccaf70ed24c1bdcbfb5505706bc2925f84"
+    },
+    {
+      "profileId": "bazi.life_stage.three_limits.wuxing_jingji_25_25_50.v1",
+      "modelId": "bazi.life_stage_model.wuxing_jingji.single_pillar.v1",
+      "boundaryInterpretationId": "life_years_1_25__26_50__51_100",
+      "stageId": "middle_limit",
+      "lifeYearOrdinal": 27,
+      "governingPillarOccurrenceRefs": [
+        "natal.day"
+      ],
+      "candidateId": "sha256:9fa79506565dfeabf670ada79c8c2f747586ab73c1e3aebb0e75cc5a437c77e3"
+    },
+    {
+      "profileId": "bazi.life_stage.three_limits.wuxing_jingji_zhu_shen_jing_30_15_55.v1",
+      "modelId": "bazi.life_stage_model.wuxing_jingji_zhu_shen_jing.literal_45_onward.v1",
+      "boundaryInterpretationId": "life_years_1_30__31_45__45_100_overlap_retained",
+      "stageId": "initial_limit",
+      "lifeYearOrdinal": 27,
+      "governingPillarOccurrenceRefs": [
+        "natal.month"
+      ],
+      "candidateId": "sha256:c1f40eb6ffda0a09e4caa30e0bc83a9b13af4a65754e2411773c944098a2aeef"
+    },
+    {
+      "profileId": "bazi.life_stage.three_limits.wuxing_jingji_zhu_shen_jing_30_15_55.v1",
+      "modelId": "bazi.life_stage_model.wuxing_jingji_zhu_shen_jing.partition_30_15_55.v1",
+      "boundaryInterpretationId": "life_years_1_30__31_45__46_100",
+      "stageId": "initial_limit",
+      "lifeYearOrdinal": 27,
+      "governingPillarOccurrenceRefs": [
+        "natal.month"
+      ],
+      "candidateId": "sha256:ec5e29cf7fc60e78f2689f74fc5f6d29d33fdf89d6ab798bcf1272dffa4b4c1b"
+    }
+  ],
+  "temporalSummary": {
+    "at": "2026-09-02T08:00:00.000Z",
+    "layers": {
+      "year": {
+        "stemId": "bing",
+        "branchId": "wu"
+      },
+      "month": {
+        "stemId": "bing",
+        "branchId": "shen"
+      },
+      "day": {
+        "stemId": "ji",
+        "branchId": "mao"
+      },
+      "hour": {
+        "stemId": "ren",
+        "branchId": "shen"
+      }
+    },
+    "natalRelationCount": 16,
+    "timeRelationCount": 3,
+    "completeBranchGroupCount": 1,
+    "lifeStageCandidateCount": 4,
+    "evaluationId": "sha256:d350e74351b2ba41c4fc92f759427878882c82f3e4907b67b489cc0a9af25ef5",
+    "lifeStageMatchSetHash": "sha256:00c967c20097654ea9f88cfc254e5e6f150fb135ea14c09a329bfef987868851"
+  },
+  "temporalEvaluation": {
+    "version": "bazi.temporal_evaluation.v1",
+    "subjectRef": "subject:2000-07-19-beijing-male",
+    "snapshotRef": "snapshot:geng-chen_gui-wei_wu-yin_geng-shen",
+    "validTimeRef": "time:2000-07-19T16:00:00+08:00",
+    "chartIdentityHash": "sha256:1bd026759275b0e80097e3787fcea882840863f67997e973f8e9a8ff823e9419",
+    "chartProvenance": {
+      "version": "bazi.capability_provenance.v1",
+      "authorityId": "yuracore.natal_compiler_golden_fixture",
+      "authorityVersion": "1.0.0",
+      "sourceRefs": [
+        "workspace:tests/fixtures/natal-compiler-golden.json",
+        "workspace:examples/2000-07-19-beijing-male.input.json"
+      ],
+      "algorithmRefs": [],
+      "requestHash": "sha256:fc848b2c28e54c8ed7a19be7f4ad7bc237e402fd23cfbe94078f93987cbd7fd3"
+    },
+    "queryMode": "instant",
+    "queryProvenance": {
+      "version": "bazi.capability_provenance.v1",
+      "authorityId": "bazi.reference_calendar.intl_meeus",
+      "authorityVersion": "1.1.0",
+      "sourceRefs": [
+        "standard:gbt-33661-2017",
+        "standard:iana-tzdb",
+        "rfc:9636",
+        "book:dershowitz-reingold:calendrical-calculations:chinese-calendar",
+        "book:meeus:astronomical-algorithms",
+        "runtime:icu:78.2",
+        "runtime:cldr:48.0",
+        "runtime:tz:2025c",
+        "reference:yuracore:solar-time-and-birth-chart:read-only"
+      ],
+      "algorithmRefs": [
+        "iana-intl-local-time.v1",
+        "meeus-two-term-solar-longitude.v1",
+        "bazi-five-tigers.v1",
+        "bazi-five-rats.v1",
+        "bazi-julian-day-cycle.v1"
+      ],
+      "requestHash": "sha256:2482047b087869cde6f598bd49fe823ef3e99259a4f19e7d41350493f4621de8",
+      "metadata": {
+        "timeZoneId": "Asia/Shanghai",
+        "runtimeVersions": {
+          "icu": "78.2",
+          "cldr": "48.0",
+          "tz": "2025c"
+        },
+        "calendar": "gregorian",
+        "solarTimeMode": "civil",
+        "boundaryProfileId": "bazi.time_boundaries.jie_midnight_zi_split.v2",
+        "solarTermPrecision": "approximate_fail_closed_within_8_minutes",
+        "resolvedGregorianLocal": {
+          "year": 2026,
+          "month": 9,
+          "day": 2,
+          "hour": 16,
+          "minute": 0,
+          "second": 0,
+          "millisecond": 0
+        },
+        "lunarInput": null
+      }
+    },
+    "includeCrossLevel": false,
+    "segments": [
+      {
+        "kind": "instant",
+        "at": "2026-09-02T08:00:00.000Z",
+        "layers": {
+          "year": {
+            "stemId": "bing",
+            "branchId": "wu"
+          },
+          "month": {
+            "stemId": "bing",
+            "branchId": "shen"
+          },
+          "day": {
+            "stemId": "ji",
+            "branchId": "mao"
+          },
+          "hour": {
+            "stemId": "ren",
+            "branchId": "shen"
+          }
+        },
+        "natalRelations": [
+          {
+            "natalSlot": "year",
+            "timeLayer": "year",
+            "relation": {
+              "leftPillar": {
+                "stemId": "geng",
+                "branchId": "chen"
+              },
+              "rightPillar": {
+                "stemId": "bing",
+                "branchId": "wu"
+              },
+              "stem": {
+                "kind": "stem_pair",
+                "relationId": "sha256:4d904413878d0b5caf5dfb540b28920428ab939613da963a95d07a3bc4d15d79",
+                "left": {
+                  "occurrenceId": "natal.year",
+                  "scope": "natal",
+                  "location": "year",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "stemId": "geng"
+                },
+                "right": {
+                  "occurrenceId": "time.year",
+                  "scope": "time",
+                  "location": "year",
+                  "subjectRef": null,
+                  "stemId": "bing"
+                },
+                "codes": [
+                  "right_controls_left"
+                ],
+                "transformedElementCandidate": null,
+                "transformationEstablished": false,
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "branch": {
+                "kind": "branch_pair",
+                "relationId": "sha256:a5363e78691a2c8c059b1edb14acec5a118e70d9ae1ea2dfd79c9c11c46904e5",
+                "left": {
+                  "occurrenceId": "natal.year",
+                  "scope": "natal",
+                  "location": "year",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "branchId": "chen"
+                },
+                "right": {
+                  "occurrenceId": "time.year",
+                  "scope": "time",
+                  "location": "year",
+                  "subjectRef": null,
+                  "branchId": "wu"
+                },
+                "codes": [
+                  "right_generates_left"
+                ],
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "effectEligible": false
+            }
+          },
+          {
+            "natalSlot": "month",
+            "timeLayer": "year",
+            "relation": {
+              "leftPillar": {
+                "stemId": "gui",
+                "branchId": "wei"
+              },
+              "rightPillar": {
+                "stemId": "bing",
+                "branchId": "wu"
+              },
+              "stem": {
+                "kind": "stem_pair",
+                "relationId": "sha256:199dae1fba634c19d1901cc1dd4dbaf8cdbe462c8c40c9182f8243d51c27751b",
+                "left": {
+                  "occurrenceId": "natal.month",
+                  "scope": "natal",
+                  "location": "month",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "stemId": "gui"
+                },
+                "right": {
+                  "occurrenceId": "time.year",
+                  "scope": "time",
+                  "location": "year",
+                  "subjectRef": null,
+                  "stemId": "bing"
+                },
+                "codes": [
+                  "left_controls_right"
+                ],
+                "transformedElementCandidate": null,
+                "transformationEstablished": false,
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "branch": {
+                "kind": "branch_pair",
+                "relationId": "sha256:349712accfe018accbaae1e10730347144a619cb25961eb0cbeb9b3fe28d39d3",
+                "left": {
+                  "occurrenceId": "natal.month",
+                  "scope": "natal",
+                  "location": "month",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "branchId": "wei"
+                },
+                "right": {
+                  "occurrenceId": "time.year",
+                  "scope": "time",
+                  "location": "year",
+                  "subjectRef": null,
+                  "branchId": "wu"
+                },
+                "codes": [
+                  "right_generates_left",
+                  "six_harmony"
+                ],
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "effectEligible": false
+            }
+          },
+          {
+            "natalSlot": "day",
+            "timeLayer": "year",
+            "relation": {
+              "leftPillar": {
+                "stemId": "wu",
+                "branchId": "yin"
+              },
+              "rightPillar": {
+                "stemId": "bing",
+                "branchId": "wu"
+              },
+              "stem": {
+                "kind": "stem_pair",
+                "relationId": "sha256:94b59fdca8bca5097268e24428e144071d50b238ee668baec3bd4eedc949f752",
+                "left": {
+                  "occurrenceId": "natal.day",
+                  "scope": "natal",
+                  "location": "day",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "stemId": "wu"
+                },
+                "right": {
+                  "occurrenceId": "time.year",
+                  "scope": "time",
+                  "location": "year",
+                  "subjectRef": null,
+                  "stemId": "bing"
+                },
+                "codes": [
+                  "right_generates_left"
+                ],
+                "transformedElementCandidate": null,
+                "transformationEstablished": false,
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "branch": {
+                "kind": "branch_pair",
+                "relationId": "sha256:7c98fbeb8d69368a9ea75b8bfdb0c8c544434c40cfafed258656aeb32f2c2b3a",
+                "left": {
+                  "occurrenceId": "natal.day",
+                  "scope": "natal",
+                  "location": "day",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "branchId": "yin"
+                },
+                "right": {
+                  "occurrenceId": "time.year",
+                  "scope": "time",
+                  "location": "year",
+                  "subjectRef": null,
+                  "branchId": "wu"
+                },
+                "codes": [
+                  "left_generates_right"
+                ],
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "effectEligible": false
+            }
+          },
+          {
+            "natalSlot": "hour",
+            "timeLayer": "year",
+            "relation": {
+              "leftPillar": {
+                "stemId": "geng",
+                "branchId": "shen"
+              },
+              "rightPillar": {
+                "stemId": "bing",
+                "branchId": "wu"
+              },
+              "stem": {
+                "kind": "stem_pair",
+                "relationId": "sha256:5c7bf6cba78ce19744cc5a24b3239bebd065affadec4688053da8b5a93dda965",
+                "left": {
+                  "occurrenceId": "natal.hour",
+                  "scope": "natal",
+                  "location": "hour",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "stemId": "geng"
+                },
+                "right": {
+                  "occurrenceId": "time.year",
+                  "scope": "time",
+                  "location": "year",
+                  "subjectRef": null,
+                  "stemId": "bing"
+                },
+                "codes": [
+                  "right_controls_left"
+                ],
+                "transformedElementCandidate": null,
+                "transformationEstablished": false,
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "branch": {
+                "kind": "branch_pair",
+                "relationId": "sha256:7c1366192941b47187ad2758b4a327d1d1eb50bf271c2d8b1f65ca0f2a715c5e",
+                "left": {
+                  "occurrenceId": "natal.hour",
+                  "scope": "natal",
+                  "location": "hour",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "branchId": "shen"
+                },
+                "right": {
+                  "occurrenceId": "time.year",
+                  "scope": "time",
+                  "location": "year",
+                  "subjectRef": null,
+                  "branchId": "wu"
+                },
+                "codes": [
+                  "right_controls_left"
+                ],
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "effectEligible": false
+            }
+          },
+          {
+            "natalSlot": "year",
+            "timeLayer": "month",
+            "relation": {
+              "leftPillar": {
+                "stemId": "geng",
+                "branchId": "chen"
+              },
+              "rightPillar": {
+                "stemId": "bing",
+                "branchId": "shen"
+              },
+              "stem": {
+                "kind": "stem_pair",
+                "relationId": "sha256:9ecba9083fb63aca6f5210d08afe757f658a9ddf351e428f7d7ab94ba3b34c10",
+                "left": {
+                  "occurrenceId": "natal.year",
+                  "scope": "natal",
+                  "location": "year",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "stemId": "geng"
+                },
+                "right": {
+                  "occurrenceId": "time.month",
+                  "scope": "time",
+                  "location": "month",
+                  "subjectRef": null,
+                  "stemId": "bing"
+                },
+                "codes": [
+                  "right_controls_left"
+                ],
+                "transformedElementCandidate": null,
+                "transformationEstablished": false,
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "branch": {
+                "kind": "branch_pair",
+                "relationId": "sha256:71af3b09cfcc9ea9a37af3303b27040b869402903bcc35617bd3bf116b0ffcc3",
+                "left": {
+                  "occurrenceId": "natal.year",
+                  "scope": "natal",
+                  "location": "year",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "branchId": "chen"
+                },
+                "right": {
+                  "occurrenceId": "time.month",
+                  "scope": "time",
+                  "location": "month",
+                  "subjectRef": null,
+                  "branchId": "shen"
+                },
+                "codes": [
+                  "left_generates_right"
+                ],
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "effectEligible": false
+            }
+          },
+          {
+            "natalSlot": "month",
+            "timeLayer": "month",
+            "relation": {
+              "leftPillar": {
+                "stemId": "gui",
+                "branchId": "wei"
+              },
+              "rightPillar": {
+                "stemId": "bing",
+                "branchId": "shen"
+              },
+              "stem": {
+                "kind": "stem_pair",
+                "relationId": "sha256:f3b5edde70003ba273c59c72a7a33d0bd60b6f463a607078db6ea2d0d3a93740",
+                "left": {
+                  "occurrenceId": "natal.month",
+                  "scope": "natal",
+                  "location": "month",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "stemId": "gui"
+                },
+                "right": {
+                  "occurrenceId": "time.month",
+                  "scope": "time",
+                  "location": "month",
+                  "subjectRef": null,
+                  "stemId": "bing"
+                },
+                "codes": [
+                  "left_controls_right"
+                ],
+                "transformedElementCandidate": null,
+                "transformationEstablished": false,
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "branch": {
+                "kind": "branch_pair",
+                "relationId": "sha256:c644ff639ec72b57fbc0df273e3b2403f90bc96409e734d6174397f25d571a31",
+                "left": {
+                  "occurrenceId": "natal.month",
+                  "scope": "natal",
+                  "location": "month",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "branchId": "wei"
+                },
+                "right": {
+                  "occurrenceId": "time.month",
+                  "scope": "time",
+                  "location": "month",
+                  "subjectRef": null,
+                  "branchId": "shen"
+                },
+                "codes": [
+                  "left_generates_right"
+                ],
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "effectEligible": false
+            }
+          },
+          {
+            "natalSlot": "day",
+            "timeLayer": "month",
+            "relation": {
+              "leftPillar": {
+                "stemId": "wu",
+                "branchId": "yin"
+              },
+              "rightPillar": {
+                "stemId": "bing",
+                "branchId": "shen"
+              },
+              "stem": {
+                "kind": "stem_pair",
+                "relationId": "sha256:2554a02a5398b4277b589de4d5395971e040bbb5069c2e44a3e007a9fbab61d1",
+                "left": {
+                  "occurrenceId": "natal.day",
+                  "scope": "natal",
+                  "location": "day",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "stemId": "wu"
+                },
+                "right": {
+                  "occurrenceId": "time.month",
+                  "scope": "time",
+                  "location": "month",
+                  "subjectRef": null,
+                  "stemId": "bing"
+                },
+                "codes": [
+                  "right_generates_left"
+                ],
+                "transformedElementCandidate": null,
+                "transformationEstablished": false,
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "branch": {
+                "kind": "branch_pair",
+                "relationId": "sha256:a2d3f2a45568197d026db66fbb4f63624cdb269835c6141f8632a8382c417005",
+                "left": {
+                  "occurrenceId": "natal.day",
+                  "scope": "natal",
+                  "location": "day",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "branchId": "yin"
+                },
+                "right": {
+                  "occurrenceId": "time.month",
+                  "scope": "time",
+                  "location": "month",
+                  "subjectRef": null,
+                  "branchId": "shen"
+                },
+                "codes": [
+                  "right_controls_left",
+                  "clash",
+                  "punishment"
+                ],
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "effectEligible": false
+            }
+          },
+          {
+            "natalSlot": "hour",
+            "timeLayer": "month",
+            "relation": {
+              "leftPillar": {
+                "stemId": "geng",
+                "branchId": "shen"
+              },
+              "rightPillar": {
+                "stemId": "bing",
+                "branchId": "shen"
+              },
+              "stem": {
+                "kind": "stem_pair",
+                "relationId": "sha256:625b4e221da505e2eb097526257569c7ac0a3d89d2f410f70d9bd9308c8ddef7",
+                "left": {
+                  "occurrenceId": "natal.hour",
+                  "scope": "natal",
+                  "location": "hour",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "stemId": "geng"
+                },
+                "right": {
+                  "occurrenceId": "time.month",
+                  "scope": "time",
+                  "location": "month",
+                  "subjectRef": null,
+                  "stemId": "bing"
+                },
+                "codes": [
+                  "right_controls_left"
+                ],
+                "transformedElementCandidate": null,
+                "transformationEstablished": false,
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "branch": {
+                "kind": "branch_pair",
+                "relationId": "sha256:c42ab51772b0d467318fe85a794d8dcf06dba6e7d77bf7723dfd25e5a02892c9",
+                "left": {
+                  "occurrenceId": "natal.hour",
+                  "scope": "natal",
+                  "location": "hour",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "branchId": "shen"
+                },
+                "right": {
+                  "occurrenceId": "time.month",
+                  "scope": "time",
+                  "location": "month",
+                  "subjectRef": null,
+                  "branchId": "shen"
+                },
+                "codes": [
+                  "same_element",
+                  "same_branch"
+                ],
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "effectEligible": false
+            }
+          },
+          {
+            "natalSlot": "year",
+            "timeLayer": "day",
+            "relation": {
+              "leftPillar": {
+                "stemId": "geng",
+                "branchId": "chen"
+              },
+              "rightPillar": {
+                "stemId": "ji",
+                "branchId": "mao"
+              },
+              "stem": {
+                "kind": "stem_pair",
+                "relationId": "sha256:1d5775fc2613c40863356e72e7a9e406fcbc65fe0e8a961e11bd5631f80baac2",
+                "left": {
+                  "occurrenceId": "natal.year",
+                  "scope": "natal",
+                  "location": "year",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "stemId": "geng"
+                },
+                "right": {
+                  "occurrenceId": "time.day",
+                  "scope": "time",
+                  "location": "day",
+                  "subjectRef": null,
+                  "stemId": "ji"
+                },
+                "codes": [
+                  "right_generates_left"
+                ],
+                "transformedElementCandidate": null,
+                "transformationEstablished": false,
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "branch": {
+                "kind": "branch_pair",
+                "relationId": "sha256:acdfc93d1c3d882258a0436e209155ebc20884d3a21a3e16adb2c3fb2162db88",
+                "left": {
+                  "occurrenceId": "natal.year",
+                  "scope": "natal",
+                  "location": "year",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "branchId": "chen"
+                },
+                "right": {
+                  "occurrenceId": "time.day",
+                  "scope": "time",
+                  "location": "day",
+                  "subjectRef": null,
+                  "branchId": "mao"
+                },
+                "codes": [
+                  "right_controls_left",
+                  "harm"
+                ],
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "effectEligible": false
+            }
+          },
+          {
+            "natalSlot": "month",
+            "timeLayer": "day",
+            "relation": {
+              "leftPillar": {
+                "stemId": "gui",
+                "branchId": "wei"
+              },
+              "rightPillar": {
+                "stemId": "ji",
+                "branchId": "mao"
+              },
+              "stem": {
+                "kind": "stem_pair",
+                "relationId": "sha256:07642aed2c723f63365713445201a4dcdaf23862c001019157b6cde14dc4c174",
+                "left": {
+                  "occurrenceId": "natal.month",
+                  "scope": "natal",
+                  "location": "month",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "stemId": "gui"
+                },
+                "right": {
+                  "occurrenceId": "time.day",
+                  "scope": "time",
+                  "location": "day",
+                  "subjectRef": null,
+                  "stemId": "ji"
+                },
+                "codes": [
+                  "right_controls_left"
+                ],
+                "transformedElementCandidate": null,
+                "transformationEstablished": false,
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "branch": {
+                "kind": "branch_pair",
+                "relationId": "sha256:3dd2001ed7fc8b118f91134e6b6348228083e1f9d6bc6560e8e1f604fc6bfa5a",
+                "left": {
+                  "occurrenceId": "natal.month",
+                  "scope": "natal",
+                  "location": "month",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "branchId": "wei"
+                },
+                "right": {
+                  "occurrenceId": "time.day",
+                  "scope": "time",
+                  "location": "day",
+                  "subjectRef": null,
+                  "branchId": "mao"
+                },
+                "codes": [
+                  "right_controls_left"
+                ],
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "effectEligible": false
+            }
+          },
+          {
+            "natalSlot": "day",
+            "timeLayer": "day",
+            "relation": {
+              "leftPillar": {
+                "stemId": "wu",
+                "branchId": "yin"
+              },
+              "rightPillar": {
+                "stemId": "ji",
+                "branchId": "mao"
+              },
+              "stem": {
+                "kind": "stem_pair",
+                "relationId": "sha256:eb952b58b0a559302db263b96be1516ffcd17c3946a3ec4d539980122a4fdbf3",
+                "left": {
+                  "occurrenceId": "natal.day",
+                  "scope": "natal",
+                  "location": "day",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "stemId": "wu"
+                },
+                "right": {
+                  "occurrenceId": "time.day",
+                  "scope": "time",
+                  "location": "day",
+                  "subjectRef": null,
+                  "stemId": "ji"
+                },
+                "codes": [
+                  "same_element"
+                ],
+                "transformedElementCandidate": null,
+                "transformationEstablished": false,
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "branch": {
+                "kind": "branch_pair",
+                "relationId": "sha256:898b97b108e5fcb056635207ba004eab76cc25dba41d24e15261f16d2820bd1e",
+                "left": {
+                  "occurrenceId": "natal.day",
+                  "scope": "natal",
+                  "location": "day",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "branchId": "yin"
+                },
+                "right": {
+                  "occurrenceId": "time.day",
+                  "scope": "time",
+                  "location": "day",
+                  "subjectRef": null,
+                  "branchId": "mao"
+                },
+                "codes": [
+                  "same_element"
+                ],
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "effectEligible": false
+            }
+          },
+          {
+            "natalSlot": "hour",
+            "timeLayer": "day",
+            "relation": {
+              "leftPillar": {
+                "stemId": "geng",
+                "branchId": "shen"
+              },
+              "rightPillar": {
+                "stemId": "ji",
+                "branchId": "mao"
+              },
+              "stem": {
+                "kind": "stem_pair",
+                "relationId": "sha256:710953d21cec5ea4f6da4a63c21e51378ce0d7fcbd772735f11916747dc18d15",
+                "left": {
+                  "occurrenceId": "natal.hour",
+                  "scope": "natal",
+                  "location": "hour",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "stemId": "geng"
+                },
+                "right": {
+                  "occurrenceId": "time.day",
+                  "scope": "time",
+                  "location": "day",
+                  "subjectRef": null,
+                  "stemId": "ji"
+                },
+                "codes": [
+                  "right_generates_left"
+                ],
+                "transformedElementCandidate": null,
+                "transformationEstablished": false,
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "branch": {
+                "kind": "branch_pair",
+                "relationId": "sha256:e2b048d7a7ec78a4f50fd589410f29ac2b4874169b3aaa3ddcf860281db65cf9",
+                "left": {
+                  "occurrenceId": "natal.hour",
+                  "scope": "natal",
+                  "location": "hour",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "branchId": "shen"
+                },
+                "right": {
+                  "occurrenceId": "time.day",
+                  "scope": "time",
+                  "location": "day",
+                  "subjectRef": null,
+                  "branchId": "mao"
+                },
+                "codes": [
+                  "left_controls_right"
+                ],
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "effectEligible": false
+            }
+          },
+          {
+            "natalSlot": "year",
+            "timeLayer": "hour",
+            "relation": {
+              "leftPillar": {
+                "stemId": "geng",
+                "branchId": "chen"
+              },
+              "rightPillar": {
+                "stemId": "ren",
+                "branchId": "shen"
+              },
+              "stem": {
+                "kind": "stem_pair",
+                "relationId": "sha256:92b2e32a178d1f2edbe4304e8457c779c86eb38c55aa1f767b8ea5d9b4444385",
+                "left": {
+                  "occurrenceId": "natal.year",
+                  "scope": "natal",
+                  "location": "year",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "stemId": "geng"
+                },
+                "right": {
+                  "occurrenceId": "time.hour",
+                  "scope": "time",
+                  "location": "hour",
+                  "subjectRef": null,
+                  "stemId": "ren"
+                },
+                "codes": [
+                  "left_generates_right"
+                ],
+                "transformedElementCandidate": null,
+                "transformationEstablished": false,
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "branch": {
+                "kind": "branch_pair",
+                "relationId": "sha256:bc2c0d2de14e212a514a787d95f8e6b3e1115b98fa3f882e5a7583d667480428",
+                "left": {
+                  "occurrenceId": "natal.year",
+                  "scope": "natal",
+                  "location": "year",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "branchId": "chen"
+                },
+                "right": {
+                  "occurrenceId": "time.hour",
+                  "scope": "time",
+                  "location": "hour",
+                  "subjectRef": null,
+                  "branchId": "shen"
+                },
+                "codes": [
+                  "left_generates_right"
+                ],
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "effectEligible": false
+            }
+          },
+          {
+            "natalSlot": "month",
+            "timeLayer": "hour",
+            "relation": {
+              "leftPillar": {
+                "stemId": "gui",
+                "branchId": "wei"
+              },
+              "rightPillar": {
+                "stemId": "ren",
+                "branchId": "shen"
+              },
+              "stem": {
+                "kind": "stem_pair",
+                "relationId": "sha256:00fff7c32efaeb93e98e86781c7ba758f4b4f25281f11e1c82868195d8d4f74e",
+                "left": {
+                  "occurrenceId": "natal.month",
+                  "scope": "natal",
+                  "location": "month",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "stemId": "gui"
+                },
+                "right": {
+                  "occurrenceId": "time.hour",
+                  "scope": "time",
+                  "location": "hour",
+                  "subjectRef": null,
+                  "stemId": "ren"
+                },
+                "codes": [
+                  "same_element"
+                ],
+                "transformedElementCandidate": null,
+                "transformationEstablished": false,
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "branch": {
+                "kind": "branch_pair",
+                "relationId": "sha256:24162416cb212eac6c81471c1d5224ed75df1264584fdc32f1148edb643a9f92",
+                "left": {
+                  "occurrenceId": "natal.month",
+                  "scope": "natal",
+                  "location": "month",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "branchId": "wei"
+                },
+                "right": {
+                  "occurrenceId": "time.hour",
+                  "scope": "time",
+                  "location": "hour",
+                  "subjectRef": null,
+                  "branchId": "shen"
+                },
+                "codes": [
+                  "left_generates_right"
+                ],
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "effectEligible": false
+            }
+          },
+          {
+            "natalSlot": "day",
+            "timeLayer": "hour",
+            "relation": {
+              "leftPillar": {
+                "stemId": "wu",
+                "branchId": "yin"
+              },
+              "rightPillar": {
+                "stemId": "ren",
+                "branchId": "shen"
+              },
+              "stem": {
+                "kind": "stem_pair",
+                "relationId": "sha256:19e89cdc9efc7ea650a97f91917ff6dfa8a99ac55f2be9eb2b66f74be057722d",
+                "left": {
+                  "occurrenceId": "natal.day",
+                  "scope": "natal",
+                  "location": "day",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "stemId": "wu"
+                },
+                "right": {
+                  "occurrenceId": "time.hour",
+                  "scope": "time",
+                  "location": "hour",
+                  "subjectRef": null,
+                  "stemId": "ren"
+                },
+                "codes": [
+                  "left_controls_right"
+                ],
+                "transformedElementCandidate": null,
+                "transformationEstablished": false,
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "branch": {
+                "kind": "branch_pair",
+                "relationId": "sha256:bd5008c2cbc2711e7038409fb575a2b7840e269dbb7574f34174fd0ff9e650ee",
+                "left": {
+                  "occurrenceId": "natal.day",
+                  "scope": "natal",
+                  "location": "day",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "branchId": "yin"
+                },
+                "right": {
+                  "occurrenceId": "time.hour",
+                  "scope": "time",
+                  "location": "hour",
+                  "subjectRef": null,
+                  "branchId": "shen"
+                },
+                "codes": [
+                  "right_controls_left",
+                  "clash",
+                  "punishment"
+                ],
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "effectEligible": false
+            }
+          },
+          {
+            "natalSlot": "hour",
+            "timeLayer": "hour",
+            "relation": {
+              "leftPillar": {
+                "stemId": "geng",
+                "branchId": "shen"
+              },
+              "rightPillar": {
+                "stemId": "ren",
+                "branchId": "shen"
+              },
+              "stem": {
+                "kind": "stem_pair",
+                "relationId": "sha256:fc8a32fad681883bc57947150b635b3b7c5fe1aa761e8c930c14a88625a0f1d2",
+                "left": {
+                  "occurrenceId": "natal.hour",
+                  "scope": "natal",
+                  "location": "hour",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "stemId": "geng"
+                },
+                "right": {
+                  "occurrenceId": "time.hour",
+                  "scope": "time",
+                  "location": "hour",
+                  "subjectRef": null,
+                  "stemId": "ren"
+                },
+                "codes": [
+                  "left_generates_right"
+                ],
+                "transformedElementCandidate": null,
+                "transformationEstablished": false,
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "branch": {
+                "kind": "branch_pair",
+                "relationId": "sha256:8b1c5ee7caffe5a289241105aa699e8e2a9d34e1508a9f81095214b15f6b3b99",
+                "left": {
+                  "occurrenceId": "natal.hour",
+                  "scope": "natal",
+                  "location": "hour",
+                  "subjectRef": "subject:2000-07-19-beijing-male",
+                  "branchId": "shen"
+                },
+                "right": {
+                  "occurrenceId": "time.hour",
+                  "scope": "time",
+                  "location": "hour",
+                  "subjectRef": null,
+                  "branchId": "shen"
+                },
+                "codes": [
+                  "same_element",
+                  "same_branch"
+                ],
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "effectEligible": false
+            }
+          }
+        ],
+        "timeRelations": [
+          {
+            "leftLayer": "year",
+            "rightLayer": "month",
+            "relation": {
+              "leftPillar": {
+                "stemId": "bing",
+                "branchId": "wu"
+              },
+              "rightPillar": {
+                "stemId": "bing",
+                "branchId": "shen"
+              },
+              "stem": {
+                "kind": "stem_pair",
+                "relationId": "sha256:233cb243b410eeb9578e10deef1ea46d2d98bd4a060cba2bcb6ec27d964398e0",
+                "left": {
+                  "occurrenceId": "time.year",
+                  "scope": "time",
+                  "location": "year",
+                  "subjectRef": null,
+                  "stemId": "bing"
+                },
+                "right": {
+                  "occurrenceId": "time.month",
+                  "scope": "time",
+                  "location": "month",
+                  "subjectRef": null,
+                  "stemId": "bing"
+                },
+                "codes": [
+                  "same_element"
+                ],
+                "transformedElementCandidate": null,
+                "transformationEstablished": false,
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "branch": {
+                "kind": "branch_pair",
+                "relationId": "sha256:026c36a90105dba0e3a99091fd319a604390da06492df4ff32486c5fdc4c947c",
+                "left": {
+                  "occurrenceId": "time.year",
+                  "scope": "time",
+                  "location": "year",
+                  "subjectRef": null,
+                  "branchId": "wu"
+                },
+                "right": {
+                  "occurrenceId": "time.month",
+                  "scope": "time",
+                  "location": "month",
+                  "subjectRef": null,
+                  "branchId": "shen"
+                },
+                "codes": [
+                  "left_controls_right"
+                ],
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "effectEligible": false
+            }
+          },
+          {
+            "leftLayer": "month",
+            "rightLayer": "day",
+            "relation": {
+              "leftPillar": {
+                "stemId": "bing",
+                "branchId": "shen"
+              },
+              "rightPillar": {
+                "stemId": "ji",
+                "branchId": "mao"
+              },
+              "stem": {
+                "kind": "stem_pair",
+                "relationId": "sha256:be321b4b59705f815f0658a48c53f7ddb406f3ee521c62ea59e9f507dc86746b",
+                "left": {
+                  "occurrenceId": "time.month",
+                  "scope": "time",
+                  "location": "month",
+                  "subjectRef": null,
+                  "stemId": "bing"
+                },
+                "right": {
+                  "occurrenceId": "time.day",
+                  "scope": "time",
+                  "location": "day",
+                  "subjectRef": null,
+                  "stemId": "ji"
+                },
+                "codes": [
+                  "left_generates_right"
+                ],
+                "transformedElementCandidate": null,
+                "transformationEstablished": false,
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "branch": {
+                "kind": "branch_pair",
+                "relationId": "sha256:c8ab93ccd405227fcbbd33d3db9f6c3495221cf6b250d33fe5b8be437eaa8ff1",
+                "left": {
+                  "occurrenceId": "time.month",
+                  "scope": "time",
+                  "location": "month",
+                  "subjectRef": null,
+                  "branchId": "shen"
+                },
+                "right": {
+                  "occurrenceId": "time.day",
+                  "scope": "time",
+                  "location": "day",
+                  "subjectRef": null,
+                  "branchId": "mao"
+                },
+                "codes": [
+                  "left_controls_right"
+                ],
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "effectEligible": false
+            }
+          },
+          {
+            "leftLayer": "day",
+            "rightLayer": "hour",
+            "relation": {
+              "leftPillar": {
+                "stemId": "ji",
+                "branchId": "mao"
+              },
+              "rightPillar": {
+                "stemId": "ren",
+                "branchId": "shen"
+              },
+              "stem": {
+                "kind": "stem_pair",
+                "relationId": "sha256:663cf186cfb003612712dc640d0833c865877753500323363625d5183e110b9a",
+                "left": {
+                  "occurrenceId": "time.day",
+                  "scope": "time",
+                  "location": "day",
+                  "subjectRef": null,
+                  "stemId": "ji"
+                },
+                "right": {
+                  "occurrenceId": "time.hour",
+                  "scope": "time",
+                  "location": "hour",
+                  "subjectRef": null,
+                  "stemId": "ren"
+                },
+                "codes": [
+                  "left_controls_right"
+                ],
+                "transformedElementCandidate": null,
+                "transformationEstablished": false,
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "branch": {
+                "kind": "branch_pair",
+                "relationId": "sha256:beb994dd65b3f166bc7820e8d9ab907e8589f0fb733ea4ba6caa265259d63806",
+                "left": {
+                  "occurrenceId": "time.day",
+                  "scope": "time",
+                  "location": "day",
+                  "subjectRef": null,
+                  "branchId": "mao"
+                },
+                "right": {
+                  "occurrenceId": "time.hour",
+                  "scope": "time",
+                  "location": "hour",
+                  "subjectRef": null,
+                  "branchId": "shen"
+                },
+                "codes": [
+                  "right_controls_left"
+                ],
+                "profileId": "bazi.raw_relations.common_reference.v1",
+                "effectEligible": false
+              },
+              "effectEligible": false
+            }
+          }
+        ],
+        "branchGroups": [
+          {
+            "kind": "branch_group",
+            "groupId": "sha256:7b226e1ff5a55a04158ded3c65a37a2ce988d524587e6ea5c89a56293fb4092d",
+            "code": "three_meeting",
+            "members": [
+              "yin",
+              "mao",
+              "chen"
+            ],
+            "participants": [
+              {
+                "occurrenceId": "natal.day",
+                "scope": "natal",
+                "location": "day",
+                "subjectRef": "subject:2000-07-19-beijing-male",
+                "branchId": "yin"
+              },
+              {
+                "occurrenceId": "time.day",
+                "scope": "time",
+                "location": "day",
+                "subjectRef": null,
+                "branchId": "mao"
+              },
+              {
+                "occurrenceId": "natal.year",
+                "scope": "natal",
+                "location": "year",
+                "subjectRef": "subject:2000-07-19-beijing-male",
+                "branchId": "chen"
+              }
+            ],
+            "complete": true,
+            "transformationEstablished": false,
+            "profileId": "bazi.raw_relations.common_reference.v1",
+            "effectEligible": false
+          }
+        ],
+        "effectEligible": false
+      }
+    ],
+    "lifeStageMatchSet": {
+      "version": "bazi.life_stage_match_set.v1",
+      "subjectRef": "subject:2000-07-19-beijing-male",
+      "snapshotRef": "snapshot:geng-chen_gui-wei_wu-yin_geng-shen",
+      "validTimeRef": "time:2000-07-19T16:00:00+08:00",
+      "chartIdentityHash": "sha256:1bd026759275b0e80097e3787fcea882840863f67997e973f8e9a8ff823e9419",
+      "ageCoordinates": [
+        {
+          "version": "bazi.age_coordinate.v1",
+          "coordinateId": "age:elapsed-anniversary:2026-09-02:life-year-27",
+          "lifeYearOrdinal": 27,
+          "reckoningProfileId": "bazi.age_reckoning.elapsed_anniversary_life_year_ordinal.v1",
+          "birthValidTimeRef": "time:2000-07-19T16:00:00+08:00",
+          "at": "2026-09-02T08:00:00.000Z",
+          "decisionRefs": [
+            "input:birth:2000-07-19T16:00:00+08:00",
+            "decision:twenty-six-completed-anniversaries-enters-life-year-27"
+          ],
+          "ageCoordinateHash": "sha256:69c9128311151c49f3191bcb99fcaff729dce2636fb6c65848919cf6a7b2e8bd"
+        }
+      ],
+      "profileRefs": [
+        {
+          "profileId": "bazi.life_stage.three_limits.wuxing_jingji_25_25_50.v1",
+          "profileHash": "sha256:24a4c49e2fd937cb64ed9d9e2b98a106d5365c17e353b40ce1752b8252728e9a",
+          "evidenceStatus": "research_only_local_transcription_corroborated",
+          "sourceRefs": [
+            "source-locator:local-transcription:yuracore:wuxing-jingji:purchased:L1613-L1616",
+            "source-locator:local-transcription:yuracore:wuxing-jingji:wikisource:L3022-L3028",
+            "research:gpt-5.6-pro:three-limits-synthesis:2026-09-02"
+          ]
+        },
+        {
+          "profileId": "bazi.life_stage.three_limits.wuxing_jingji_zhu_shen_jing_30_15_55.v1",
+          "profileHash": "sha256:f5f846540d55a3455d214a8286c5490c3b9f120a6e5562ada38199d6b4be8924",
+          "evidenceStatus": "research_only_local_transcription_corroborated",
+          "sourceRefs": [
+            "source-locator:local-transcription:yuracore:wuxing-jingji:purchased:L4112-L4113",
+            "source-locator:local-transcription:yuracore:wuxing-jingji:wikisource:L7966-L7968",
+            "attribution:zhu-shen-jing:via-wuxing-jingji",
+            "research:gpt-5.6-pro:three-limits-synthesis:2026-09-02"
+          ]
+        }
+      ],
+      "natalPillarOccurrences": {
+        "natal.year": {
+          "occurrenceId": "natal.year",
+          "slot": "year",
+          "pillar": {
+            "stemId": "geng",
+            "branchId": "chen"
+          }
+        },
+        "natal.month": {
+          "occurrenceId": "natal.month",
+          "slot": "month",
+          "pillar": {
+            "stemId": "gui",
+            "branchId": "wei"
+          }
+        },
+        "natal.day": {
+          "occurrenceId": "natal.day",
+          "slot": "day",
+          "pillar": {
+            "stemId": "wu",
+            "branchId": "yin"
+          }
+        },
+        "natal.hour": {
+          "occurrenceId": "natal.hour",
+          "slot": "hour",
+          "pillar": {
+            "stemId": "geng",
+            "branchId": "shen"
+          }
+        }
+      },
+      "candidates": [
+        {
+          "profileId": "bazi.life_stage.three_limits.wuxing_jingji_25_25_50.v1",
+          "profileHash": "sha256:24a4c49e2fd937cb64ed9d9e2b98a106d5365c17e353b40ce1752b8252728e9a",
+          "modelId": "bazi.life_stage_model.wuxing_jingji.adjacent_pair.v1",
+          "boundaryInterpretationId": "life_years_1_25__26_50__51_100",
+          "overlapPolicy": "disjoint_partition",
+          "stageId": "middle_limit",
+          "stageRange": {
+            "fromLifeYearOrdinal": 26,
+            "untilLifeYearOrdinalExclusive": 51
+          },
+          "coordinateId": "age:elapsed-anniversary:2026-09-02:life-year-27",
+          "ageCoordinateHash": "sha256:69c9128311151c49f3191bcb99fcaff729dce2636fb6c65848919cf6a7b2e8bd",
+          "lifeYearOrdinal": 27,
+          "governingPillarOccurrenceRefs": [
+            "natal.month",
+            "natal.day"
+          ],
+          "materialStatus": "traditional_life_stage_candidate",
+          "evidenceStatus": "research_only_local_transcription_corroborated",
+          "sourceRefs": [
+            "source-locator:local-transcription:yuracore:wuxing-jingji:purchased:L1613-L1616",
+            "source-locator:local-transcription:yuracore:wuxing-jingji:wikisource:L3022-L3028",
+            "research:gpt-5.6-pro:three-limits-synthesis:2026-09-02"
+          ],
+          "utility": "indeterminate",
+          "effectEligible": false,
+          "candidateId": "sha256:41b29e06c8c389c98c81867bccb69bccaf70ed24c1bdcbfb5505706bc2925f84"
+        },
+        {
+          "profileId": "bazi.life_stage.three_limits.wuxing_jingji_25_25_50.v1",
+          "profileHash": "sha256:24a4c49e2fd937cb64ed9d9e2b98a106d5365c17e353b40ce1752b8252728e9a",
+          "modelId": "bazi.life_stage_model.wuxing_jingji.single_pillar.v1",
+          "boundaryInterpretationId": "life_years_1_25__26_50__51_100",
+          "overlapPolicy": "disjoint_partition",
+          "stageId": "middle_limit",
+          "stageRange": {
+            "fromLifeYearOrdinal": 26,
+            "untilLifeYearOrdinalExclusive": 51
+          },
+          "coordinateId": "age:elapsed-anniversary:2026-09-02:life-year-27",
+          "ageCoordinateHash": "sha256:69c9128311151c49f3191bcb99fcaff729dce2636fb6c65848919cf6a7b2e8bd",
+          "lifeYearOrdinal": 27,
+          "governingPillarOccurrenceRefs": [
+            "natal.day"
+          ],
+          "materialStatus": "traditional_life_stage_candidate",
+          "evidenceStatus": "research_only_local_transcription_corroborated",
+          "sourceRefs": [
+            "source-locator:local-transcription:yuracore:wuxing-jingji:purchased:L1613-L1616",
+            "source-locator:local-transcription:yuracore:wuxing-jingji:wikisource:L3022-L3028",
+            "research:gpt-5.6-pro:three-limits-synthesis:2026-09-02"
+          ],
+          "utility": "indeterminate",
+          "effectEligible": false,
+          "candidateId": "sha256:9fa79506565dfeabf670ada79c8c2f747586ab73c1e3aebb0e75cc5a437c77e3"
+        },
+        {
+          "profileId": "bazi.life_stage.three_limits.wuxing_jingji_zhu_shen_jing_30_15_55.v1",
+          "profileHash": "sha256:f5f846540d55a3455d214a8286c5490c3b9f120a6e5562ada38199d6b4be8924",
+          "modelId": "bazi.life_stage_model.wuxing_jingji_zhu_shen_jing.literal_45_onward.v1",
+          "boundaryInterpretationId": "life_years_1_30__31_45__45_100_overlap_retained",
+          "overlapPolicy": "retain_all_matching_segments",
+          "stageId": "initial_limit",
+          "stageRange": {
+            "fromLifeYearOrdinal": 1,
+            "untilLifeYearOrdinalExclusive": 31
+          },
+          "coordinateId": "age:elapsed-anniversary:2026-09-02:life-year-27",
+          "ageCoordinateHash": "sha256:69c9128311151c49f3191bcb99fcaff729dce2636fb6c65848919cf6a7b2e8bd",
+          "lifeYearOrdinal": 27,
+          "governingPillarOccurrenceRefs": [
+            "natal.month"
+          ],
+          "materialStatus": "traditional_life_stage_candidate",
+          "evidenceStatus": "research_only_local_transcription_corroborated",
+          "sourceRefs": [
+            "source-locator:local-transcription:yuracore:wuxing-jingji:purchased:L4112-L4113",
+            "source-locator:local-transcription:yuracore:wuxing-jingji:wikisource:L7966-L7968",
+            "attribution:zhu-shen-jing:via-wuxing-jingji",
+            "research:gpt-5.6-pro:three-limits-synthesis:2026-09-02"
+          ],
+          "utility": "indeterminate",
+          "effectEligible": false,
+          "candidateId": "sha256:c1f40eb6ffda0a09e4caa30e0bc83a9b13af4a65754e2411773c944098a2aeef"
+        },
+        {
+          "profileId": "bazi.life_stage.three_limits.wuxing_jingji_zhu_shen_jing_30_15_55.v1",
+          "profileHash": "sha256:f5f846540d55a3455d214a8286c5490c3b9f120a6e5562ada38199d6b4be8924",
+          "modelId": "bazi.life_stage_model.wuxing_jingji_zhu_shen_jing.partition_30_15_55.v1",
+          "boundaryInterpretationId": "life_years_1_30__31_45__46_100",
+          "overlapPolicy": "disjoint_partition",
+          "stageId": "initial_limit",
+          "stageRange": {
+            "fromLifeYearOrdinal": 1,
+            "untilLifeYearOrdinalExclusive": 31
+          },
+          "coordinateId": "age:elapsed-anniversary:2026-09-02:life-year-27",
+          "ageCoordinateHash": "sha256:69c9128311151c49f3191bcb99fcaff729dce2636fb6c65848919cf6a7b2e8bd",
+          "lifeYearOrdinal": 27,
+          "governingPillarOccurrenceRefs": [
+            "natal.month"
+          ],
+          "materialStatus": "traditional_life_stage_candidate",
+          "evidenceStatus": "research_only_local_transcription_corroborated",
+          "sourceRefs": [
+            "source-locator:local-transcription:yuracore:wuxing-jingji:purchased:L4112-L4113",
+            "source-locator:local-transcription:yuracore:wuxing-jingji:wikisource:L7966-L7968",
+            "attribution:zhu-shen-jing:via-wuxing-jingji",
+            "research:gpt-5.6-pro:three-limits-synthesis:2026-09-02"
+          ],
+          "utility": "indeterminate",
+          "effectEligible": false,
+          "candidateId": "sha256:ec5e29cf7fc60e78f2689f74fc5f6d29d33fdf89d6ab798bcf1272dffa4b4c1b"
+        }
+      ],
+      "outsideProfileRange": [],
+      "candidateCount": 4,
+      "utility": "indeterminate",
+      "effectEligible": false,
+      "lifeStageMatchSetHash": "sha256:00c967c20097654ea9f88cfc254e5e6f150fb135ea14c09a329bfef987868851"
+    },
+    "profileId": "bazi.raw_relations.common_reference.v1",
+    "profileHash": "sha256:f56d37f825cb4d63c6c0466332bd3121b74b4b59e33fed3f24acaf704406347a",
+    "scopeProfileId": "bazi.temporal_scope.natal_and_explicit_layers_raw.v1",
+    "scopeProfileHash": "sha256:b445690b2222017c96485c63721c8fa8ff26d390aa75cd6c8aa7b9e6db7f7ae1",
+    "utility": "indeterminate",
+    "effectEligible": false,
+    "evaluationId": "sha256:d350e74351b2ba41c4fc92f759427878882c82f3e4907b67b489cc0a9af25ef5"
+  },
+  "artifactHash": "sha256:af200ac06c68ce3cc227a616789211d1d232da25ac8151f17df7995cb6451f48"
+}

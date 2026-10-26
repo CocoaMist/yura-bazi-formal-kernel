@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "bazi.natal_compilation_contracts.schema.v1",
+  "$defs": {
+    "Sha256": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+    "CandidateSnapshotV1": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "candidateOrdinal", "candidateId", "inputFactHash", "calendarResolutionId", "candidateDecisionPathRef", "snapshot", "snapshotHash"],
+      "properties": {
+        "version": { "const": "bazi.candidate_snapshot.v1" },
+        "candidateOrdinal": { "type": "integer", "minimum": 0 },
+        "candidateId": { "type": "string", "minLength": 1 },
+        "inputFactHash": { "$ref": "#/$defs/Sha256" },
+        "calendarResolutionId": { "type": "string", "minLength": 1 },
+        "candidateDecisionPathRef": { "type": "string", "minLength": 1 },
+        "snapshot": { "type": "object" },
+        "snapshotHash": { "$ref": "#/$defs/Sha256" }
+      }
+    },
+    "CandidateSnapshotSetV2": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "inputFactHash", "calendarResolutionId", "candidateCount", "candidates", "candidateSnapshotSetHash"],
+      "properties": {
+        "version": { "const": "bazi.candidate_snapshot_set.v2" },
+        "inputFactHash": { "$ref": "#/$defs/Sha256" },
+        "calendarResolutionId": { "type": "string", "minLength": 1 },
+        "candidateCount": { "type": "integer", "minimum": 0 },
+        "candidates": { "type": "array", "items": { "$ref": "#/$defs/CandidateSnapshotV1" } },
+        "candidateSnapshotSetHash": { "$ref": "#/$defs/Sha256" }
+      }
+    },
+    "NatalCalendarDecisionTraceV1": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "inputFactHash", "calendarResolutionId", "candidatePaths", "decisions", "calendarDecisionTraceHash"],
+      "properties": {
+        "version": { "const": "bazi.natal_calendar_decision_trace.v1" },
+        "inputFactHash": { "$ref": "#/$defs/Sha256" },
+        "calendarResolutionId": { "type": "string", "minLength": 1 },
+        "candidatePaths": { "type": "array" },
+        "decisions": {},
+        "calendarDecisionTraceHash": { "$ref": "#/$defs/Sha256" }
+      }
+    },
+    "CalendarResolutionEnvelopeV1": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "inputFactHash", "calendarResolutionId", "calendarProviderIdentity", "calendarProfileHash", "calendarDecisionTraceHash", "candidateSnapshotSetHash", "precisionPolicy", "resolutionSchemaVersion", "calendarResolutionEnvelopeHash"],
+      "properties": {
+        "version": { "const": "bazi.calendar_resolution_envelope.v1" },
+        "inputFactHash": { "$ref": "#/$defs/Sha256" },
+        "calendarResolutionId": { "type": "string", "minLength": 1 },
+        "calendarProviderIdentity": {},
+        "calendarProfileHash": { "$ref": "#/$defs/Sha256" },
+        "calendarDecisionTraceHash": { "$ref": "#/$defs/Sha256" },
+        "candidateSnapshotSetHash": { "$ref": "#/$defs/Sha256" },
+        "precisionPolicy": {},
+        "resolutionSchemaVersion": { "type": "string", "minLength": 1 },
+        "calendarResolutionEnvelopeHash": { "$ref": "#/$defs/Sha256" }
+      }
+    },
+    "NatalCompilationRequestV1": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "requestSchemaVersion", "candidateSnapshotSetHash", "calendarDecisionTraceHash", "releaseManifestHash", "activeProfileId", "requestHash"],
+      "properties": {
+        "version": { "const": "bazi.natal_compilation_request.v1" },
+        "requestSchemaVersion": { "const": "bazi.natal_compilation_request.schema.v1" },
+        "candidateSnapshotSetHash": { "$ref": "#/$defs/Sha256" },
+        "calendarDecisionTraceHash": { "$ref": "#/$defs/Sha256" },
+        "releaseManifestHash": { "$ref": "#/$defs/Sha256" },
+        "activeProfileId": { "type": "string", "minLength": 1 },
+        "requestHash": { "$ref": "#/$defs/Sha256" },
+        "metadata": {}
+      }
+    },
+    "CandidateCompilationResultV2": {
+      "type": "object",
+      "required": ["version", "status", "candidateOrdinal", "candidateId", "snapshotHash", "requestHash", "releaseManifestHash", "selectedRelationProfileHash", "resultHash"],
+      "properties": {
+        "version": { "const": "bazi.candidate_compilation_result.v2" },
+        "status": { "enum": ["compiled", "validation_failed", "compilation_failed", "internal_error"] },
+        "candidateOrdinal": { "type": "integer", "minimum": 0 },
+        "candidateId": { "type": "string", "minLength": 1 },
+        "snapshotHash": { "$ref": "#/$defs/Sha256" },
+        "requestHash": { "$ref": "#/$defs/Sha256" },
+        "releaseManifestHash": { "$ref": "#/$defs/Sha256" },
+        "selectedRelationProfileHash": { "$ref": "#/$defs/Sha256" },
+        "resultHash": { "$ref": "#/$defs/Sha256" }
+      }
+    },
+    "CompiledNatalArtifactV2": {
+      "type": "object",
+      "required": ["version", "candidateId", "candidateOrdinal", "candidateSnapshotHash", "candidateDecisionPathRef", "coordinateHash", "pillarCode24", "denseRank", "foundationDependencyHash", "canonicalFactGraphHash", "structuralCandidateSetHash", "releaseManifestHash", "selectedRelationProfileHash", "compilerIdentity", "provenanceRoot", "compiledNatalArtifactHash"],
+      "properties": { "version": { "const": "bazi.compiled_natal_artifact.v2" } }
+    },
+    "NatalCompilationBatchV2": {
+      "type": "object",
+      "required": ["version", "requestHash", "inputFactHash", "calendarDecisionTraceHash", "candidateSnapshotSetHash", "releaseManifestHash", "selectedRelationProfileHash", "inputCount", "resultCount", "status", "results", "natalCompilationBatchHash"],
+      "properties": {
+        "version": { "const": "bazi.natal_compilation_batch.v2" },
+        "status": { "enum": ["empty", "compiled", "partial_failure", "failed"] },
+        "results": { "type": "array", "items": { "$ref": "#/$defs/CandidateCompilationResultV2" } }
+      }
+    }
+  }
+}

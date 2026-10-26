@@ -1,0 +1,15 @@
+{
+  "name": "@yura/bazi-capabilities",
+  "version": "0.5.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test --test-concurrency=2 \"tests/**/*.test.mjs\"",
+    "structure:validate": "node tools/validate-boundaries.mjs",
+    "check": "npm run structure:validate && npm test",
+    "example:three-limits": "node examples/run-three-limits-sample.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

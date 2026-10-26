@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "bazi.schema_catalog.v1",
+  "schemas": [
+    "birth-compilation.schema.json",
+    "natal-fixed.schema.json",
+    "natal-compilation.schema.json",
+    "release-profiles.schema.json",
+    "temporal-core.schema.json",
+    "typed-fact-closure.schema.json"
+  ]
+}

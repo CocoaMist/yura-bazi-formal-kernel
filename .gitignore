@@ -1,0 +1,41 @@
+# Runtime dependencies and regenerable files
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+coverage/
+target/
+temp/
+*.log
+*.tmp
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+*.zip
+*.7z
+*.tar
+*.gz
+
+# Credentials and machine-specific configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.pfx
+*.p12
+*.key
+.codex/
+.vscode/
+.idea/
+
+# Local/private datasets and research outputs are never public inputs
+/library/
+/library.zip
+/artifacts/
+/outputs/
+/evidence/
+/research-space/
+/research-tests/
+/experiments/
+/life-course-atlas/
